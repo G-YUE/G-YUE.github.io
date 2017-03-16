@@ -662,59 +662,15 @@
 
       
         
-          
-            <p>首先看下各种存储设备在Linux中的文件名：</p>
+          <p>首先看下各种存储设备在Linux中的文件名：</p>
 <p><img src="http://images2015.cnblogs.com/blog/1036857/201611/1036857-20161109124853764-690268125.png" alt=""></p>
-<h3 id="为什么进行分区？"><a href="#为什么进行分区？" class="headerlink" title="为什么进行分区？"></a>为什么进行分区？</h3><ul>
-<li>更容易管理和控制系统。</li>
-<li>系统效率更高。</li>
-<li>可以限制用户使用硬盘的空间大小。</li>
-<li>更容易备份和回复。</li>
-</ul>
-<h2 id="Linux系统中硬盘的分区"><a href="#Linux系统中硬盘的分区" class="headerlink" title="Linux系统中硬盘的分区"></a>Linux系统中硬盘的分区</h2><p>硬盘的分区可以分为：主分区、扩展分区和逻辑分区。</p>
-<p>一块硬盘上最多可以划分出4个主分区。</p>
-<pre><code>df: 查看磁盘分区，大小，挂载等内容。
-参数：
-    H: 以1024模式显示    
-    i:显示inode信息，有inode码之类的。
-</code></pre><p>下面来用fdisk来创建磁盘分区：</p>
-<h1 id="fdisk：创建磁盘分区。"><a href="#fdisk：创建磁盘分区。" class="headerlink" title="fdisk：创建磁盘分区。"></a>fdisk：创建磁盘分区。</h1><p>首先，fdisk 要被分区的磁盘名。</p>
-<p>fdisk命令列表中常用的命令。<br>    d: 删除一个（已经存在的）分区，delet</p>
-<pre><code>l: 列出（已经存在的）分区的类型，list
-
-m： 列出fdisk中使用的所有命令。
-
-n： 添加一个新的分区，new。
-
-p： 列出分区表的内容，print。
-
-q： 推出fdisk，但是不会存储所做的变化，quit。
-
-t： 改变分区系统的id，title。
-
-w： 推出fdisk并储存所做的变化，write
-</code></pre><p>创建完分区还不能立刻是用，需要对分区进行格式化。</p>
-<h1 id="mkfs：创建文件系统，格式化分区。"><a href="#mkfs：创建文件系统，格式化分区。" class="headerlink" title="mkfs：创建文件系统，格式化分区。"></a>mkfs：创建文件系统，格式化分区。</h1><p>首先了解下常用的文件系统类型。</p>
-<pre><code>ext2：Linux系统中标准的文件系统
-ext3：一种日志式文件系统
-ext4：一种针对ext3系统的扩展日志式文件系统
-lvm：逻辑盘卷管理 
-iso9660：目前唯一通用的光盘文件系统 
-XFS： 一种高性能的日志文件系统
-</code></pre><p>例如：要将/dev/sdb1 格式化为xfs文件系统。</p>
-<pre><code>mkfs.xfs /dev/sdb1
-</code></pre><h1 id="mount：挂载。"><a href="#mount：挂载。" class="headerlink" title="mount：挂载。"></a>mount：挂载。</h1><p>挂载：指将一个设备挂机到一个已存在的目录上。</p>
-<p>例如：将/dev/sdb1 分区挂载到/wg目录上。</p>
-<pre><code>mount /dev/sdb1 /wg
-</code></pre><p>卸载：将目录上的挂载卸载掉。</p>
-<p>例如：卸载/wg上的文件系统。</p>
-<pre><code>umount /wg    
-</code></pre><h1 id="软链接和硬链接。"><a href="#软链接和硬链接。" class="headerlink" title="软链接和硬链接。"></a>软链接和硬链接。</h1><p>软链接：ln -s 源文件路径  快捷方式所在路径</p>
-<p>快捷方式指向的是源文件的文件名，有自己的innode。删除源文件，快捷方式失效。可以跨分区连接。</p>
-<p>硬链接：ln 源文件路径  快捷方式所在路径</p>
-<p>快捷方式指向的是源文件的innode号。删除源文件，快捷方式不受影响。不可以跨分区链接。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/16/Linux硬盘分区、格式化及系统管理/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -929,7 +885,7 @@ XFS： 一种高性能的日志文件系统
               
                 
                 <a class="post-title-link" href="/2017/03/16/linux打包文件/" itemprop="url">
-                  未命名
+                  linux打包文件
                 </a>
               
             
