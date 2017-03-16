@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="作业，linux," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -87,19 +87,24 @@
 
 
 
-<meta name="description" content="作业一：1)    新建用户natasha，uid为1000，gid为555，备注信息为“master”
-ueradd -u 1000 -g 555 -c &amp;apos;master&amp;apos; natasha">
+<meta name="description" content="VIM编辑器的三种模式命令行模式：可以输入指定的VI命令来操作正文。
+编辑模式：可以输入字符被解释为输入正文。
+扩展模式：可以进行一些高级编辑命令，如存盘，退出。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LINUX作业2">
-<meta property="og:url" content="http://yoursite.com/2017/03/16/linux用户命令作业/index.html">
+<meta property="og:title" content="VI和VIM编辑器">
+<meta property="og:url" content="http://yoursite.com/2017/03/16/VI和VIM编辑器/index.html">
 <meta property="og:site_name" content="跃">
-<meta property="og:description" content="作业一：1)    新建用户natasha，uid为1000，gid为555，备注信息为“master”
-ueradd -u 1000 -g 555 -c &amp;apos;master&amp;apos; natasha">
-<meta property="og:updated_time" content="2017-03-16T09:28:06.649Z">
+<meta property="og:description" content="VIM编辑器的三种模式命令行模式：可以输入指定的VI命令来操作正文。
+编辑模式：可以输入字符被解释为输入正文。
+扩展模式：可以进行一些高级编辑命令，如存盘，退出。">
+<meta property="og:image" content="http://i1.piimg.com/567571/c6c90daf91941036.png">
+<meta property="og:updated_time" content="2017-03-16T10:35:51.249Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LINUX作业2">
-<meta name="twitter:description" content="作业一：1)    新建用户natasha，uid为1000，gid为555，备注信息为“master”
-ueradd -u 1000 -g 555 -c &amp;apos;master&amp;apos; natasha">
+<meta name="twitter:title" content="VI和VIM编辑器">
+<meta name="twitter:description" content="VIM编辑器的三种模式命令行模式：可以输入指定的VI命令来操作正文。
+编辑模式：可以输入字符被解释为输入正文。
+扩展模式：可以进行一些高级编辑命令，如存盘，退出。">
+<meta name="twitter:image" content="http://i1.piimg.com/567571/c6c90daf91941036.png">
 
 
 
@@ -127,13 +132,13 @@ ueradd -u 1000 -g 555 -c &amp;apos;master&amp;apos; natasha">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/16/linux用户命令作业/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/16/VI和VIM编辑器/"/>
 
 
 
 
 
-  <title> LINUX作业2 | 跃 </title>
+  <title> VI和VIM编辑器 | 跃 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -272,7 +277,7 @@ ueradd -u 1000 -g 555 -c &amp;apos;master&amp;apos; natasha">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/16/linux用户命令作业/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/16/VI和VIM编辑器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="G-YUE">
@@ -293,7 +298,7 @@ ueradd -u 1000 -g 555 -c &amp;apos;master&amp;apos; natasha">
             
             
               
-                LINUX作业2
+                VI和VIM编辑器
               
             
           </h1>
@@ -308,7 +313,7 @@ ueradd -u 1000 -g 555 -c &amp;apos;master&amp;apos; natasha">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-16T16:59:09+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-16T09:41:29+08:00">
                 2017-03-16
               </time>
             
@@ -331,8 +336,8 @@ ueradd -u 1000 -g 555 -c &amp;apos;master&amp;apos; natasha">
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux作业/" itemprop="url" rel="index">
-                    <span itemprop="name">linux作业</span>
+                  <a href="/categories/linux学习基础/" itemprop="url" rel="index">
+                    <span itemprop="name">linux学习基础</span>
                   </a>
                 </span>
 
@@ -366,116 +371,45 @@ ueradd -u 1000 -g 555 -c &amp;apos;master&amp;apos; natasha">
       
 
       
-        <h2 id="作业一："><a href="#作业一：" class="headerlink" title="作业一："></a>作业一：</h2><p>1)    新建用户natasha，uid为1000，gid为555，备注信息为“master”</p>
-<pre><code>ueradd -u 1000 -g 555 -c &apos;master&apos; natasha
+        <h2 id="VIM编辑器的三种模式"><a href="#VIM编辑器的三种模式" class="headerlink" title="VIM编辑器的三种模式"></a>VIM编辑器的三种模式</h2><pre><code>命令行模式：可以输入指定的VI命令来操作正文。
+编辑模式：可以输入字符被解释为输入正文。
+扩展模式：可以进行一些高级编辑命令，如存盘，退出。
 </code></pre><a id="more"></a>
-<p>2)    修改natasha用户的家目录为/Natasha</p>
-<pre><code>usermod -d /home/Ntasha natasha
-</code></pre><p>3)    查看用户信息配置文件的最后一行</p>
-<pre><code>tail -n 1 /etc/passwd
-</code></pre><p>4)    为natasha用户设置密码“123”</p>
-<pre><code>passwd natasha
-新的密码：123
-重新输入新的密码：123
-</code></pre><p>5)    查看用户密码配置文件的最后一行</p>
-<pre><code>tail -n 1 /etc/shadow
-</code></pre><p>6)    将natasha用户账户锁定</p>
-<pre><code>usermod -L natasha
-</code></pre><p>7)    将natasha用户账户解锁</p>
-<pre><code>usermod -U natasha
-</code></pre><p>8)    新建组police，gid为1999</p>
-<pre><code>groupadd -g 1999 police
-</code></pre><p>9)    查看组配置文件的最后一行</p>
-<pre><code>tail -n 1 /etc/group
-</code></pre><p>10)    将natasha用户加入police组</p>
-<pre><code>usermod -G 1999 natasha
-</code></pre><p>11)    修改police组的组名为jingcha</p>
-<pre><code>groupmod -n jingcha  police
-</code></pre><p>12)    删除natasha用户，连家目录和邮箱一起删除</p>
-<pre><code>userdel -r natasha
-</code></pre><p>13)    删除jingcha组</p>
-<pre><code>groupdel jingcha
-</code></pre><h2 id="作业二："><a href="#作业二：" class="headerlink" title="作业二："></a>作业二：</h2><p>1)    在用户的主目录下创建目录test，进入test创建空文件file1</p>
-<pre><code>mkdir test
-cd test
-touch file1
-</code></pre><p>2)    以长格式形式显示文件信息，注意文件的权限和所属用户和组</p>
-<pre><code>ll file1
-</code></pre><p>3)    为文件file1设置权限，使其他用户可以对此文件进行写操作。</p>
-<pre><code>chmod o=w file1
-</code></pre><p>4)    查看设置结果，</p>
-<pre><code>ll file
-</code></pre><p>5)    取消同组用户对文件file1的读取权限，并查看设置结果。</p>
-<pre><code>chmod g-r file1
-</code></pre><p>6)    用数字表示法为文件file1设置权限，所有者可读、可写、可执<br>行，所属组用户和其他用户只具有读和执行的权限。设置完成后查看设置结果。</p>
-<pre><code>chmod 755 file1
-</code></pre><p>7)    用数字形式更改文件file1的权限，使所有者只能读取此文件。其他任何用户都没有权限。查看设置结果。</p>
-<pre><code>chmod 400 file1
-</code></pre><p>8)    回到上层目录，查看test的权限</p>
-<pre><code>cd ..
-ll -d test
-</code></pre><p>9)    为其他用户添加对此目录的写权限</p>
-<pre><code>chmod o+w test
-</code></pre><h2 id="作业三："><a href="#作业三：" class="headerlink" title="作业三："></a>作业三：</h2><p>以操作文件的方式，新建一个用户alex</p>
-<pre><code>一、在passwd中添加alex。
-vim /etc/passwd 添加内容如下:
-alex:x:1004:1004:alex:/home/alex:/bin/bash
-二、在shadow中添加alex。
-vim /etc/shadow 添加内容如下：
-alex:！！:17240:0:99999:7:::
-三、在group中添加alex。
-vim /etc/group 添加内容如下：
-alex:x:1004:
-四、在gshadow中添加alex。
-vim /etc/gshadow 添加内容如下。
-alex:!::
-五、建立家目录和邮箱。
-cd /home
-mkdir alex
-cd /var/spool/mail
-touch alex
-六、往家目录里拷贝模版。
-cp -R /etc/skel/.[!.]* /home/alex
-七、更改所建的目录和文件的属主和属组。
-chown -R alex.alex /home/alex
-chown alex.alex /var/spool/mail/alex
-八、给alex设置密码，并登录验证。
-passwd alex
-</code></pre><h2 id="作业四："><a href="#作业四：" class="headerlink" title="作业四："></a>作业四：</h2><p>1) 新建目录/test/dir，属主为tom，数组为group1，/test目录的权限为777</p>
-<pre><code>mkdir -p /test/dir
-chown -R tom.group1 /test
-chmod 777 test
-</code></pre><p>2) 新建用户jack，切换到jack用户下，验证jack用户对dir目录的rwx权限（开启另外一个终端，依次修改dir目录的others权限）</p>
-<pre><code>chmod o=r dir
-chmod o=w dir
-chmod o=x dir
-</code></pre><p>3）将jack加入group1组，验证jack用户对dir目录的rwx权限（开启另外一个终端，依次修改dir目录的group权限）</p>
-<pre><code>usermod -G group1 jack
-chmod g=r dir
-chmod g=w dir
-chmod g=x dir
-</code></pre><p>4）切换到tom用户，验证tom用户对dir目录的rwx权限（开启另外一个终端，依次修改dir目录的user权限）</p>
-<pre><code>chmod u=r dir
-chmod u=w dir
-chmod u=x dir
-</code></pre><p>5）在dir目录内新建文件tom.txt,属主为tom，属组为group1，/test目录的权限为777</p>
-<pre><code>touch tom.txt
-chown tom.group1 tom.txt
-chmod 777 tom.txt
-</code></pre><p>6）新建用户rose，切换到rose用户下，验证rose用户对tom.txt的rwx权限（开启另外一个终端，依次修改tom.txt的others权限来配合验证过程）</p>
-<pre><code>chmod o=r dir
-chmod o=w dir
-chmod o=x dir
-</code></pre><p>7）将rose加入group1组，在rose用户下，验证rose用户对tom.txt的rwx权限（开启另外一个终端，依次修改tom.txt的group1权限来配合验证过程）</p>
-<pre><code>usermod -G group1 rose
-chmod g=r dir
-chmod g=w dir
-chmod g=x dir
-</code></pre><p>8）切换到tom用户，验证tom用户对tom.txt的rwx权限（开启另外一个终端，依次修改tom.txt的user权限来配合验证过程）</p>
-<pre><code>chmod u=r dir
-chmod u=w dir
-chmod u=x dir
-</code></pre>
+<p><img src="http://i1.piimg.com/567571/c6c90daf91941036.png" alt=""></p>
+<h3 id="1、编辑器中光标的移动。"><a href="#1、编辑器中光标的移动。" class="headerlink" title="1、编辑器中光标的移动。"></a>1、编辑器中光标的移动。</h3><pre><code>$：光标移动到当前行的结尾。
+o:光标移动到当前行的开始。
+
+G(shift+g):光标移动到这个文件的最后一行。
+nG：n为数字，光标移动到这个文件的第n行。
+gg：移动到这个文件的第一行，等同于1G。
+
+H：光标移动到这个屏幕的最上方那一行的第一个字符。
+M:光标移动到这个屏幕的中央那一行的第一个字符。
+L：光标移动到这个屏幕的最下一行的第一个字符。
+</code></pre><h3 id="2、进入插入模式。"><a href="#2、进入插入模式。" class="headerlink" title="2、进入插入模式。"></a>2、进入插入模式。</h3><p>在命令行输入 vim filename,进入的是命令行模式，要想对文件内容修改，需要进入插入模式。</p>
+<pre><code>a:进入插入模式，并在光标后添加。
+
+i:进入插入模式，并在光标前添加。
+
+o:进入插入模式，并在当前光标所在行之下，开启新的一行并添加。
+</code></pre><h3 id="3-命令模式下一些功能操作。"><a href="#3-命令模式下一些功能操作。" class="headerlink" title="3.命令模式下一些功能操作。"></a>3.命令模式下一些功能操作。</h3><p>如果对自己写入的内容不满意，一个一个的删是否有点麻烦？或者要写一段上面已经有了的话，再从新打一遍？</p>
+<p>在命令行模式下有一些简单的操作来实现各种功能：</p>
+<h4 id="3-1-常用的删除和复制、粘贴的按键"><a href="#3-1-常用的删除和复制、粘贴的按键" class="headerlink" title="3.1 常用的删除和复制、粘贴的按键"></a>3.1 常用的删除和复制、粘贴的按键</h4><pre><code>dd: 删除光标所在的那一行。
+ndd： n为数字，删除光标所在的向下n行。
+
+yy： 复制光标所在的那一行。
+nyy： 复制光标所在的向下n行。
+
+p： 将已经复制的数据在光标下一行粘贴。
+P（shift+p）：将已经复制的数据在光标的上一行粘贴。
+</code></pre><h3 id="3-2-撤销和重做操作。"><a href="#3-2-撤销和重做操作。" class="headerlink" title="3.2 撤销和重做操作。"></a>3.2 撤销和重做操作。</h3><pre><code>u：     撤销，复原前一个操作。
+ctrl+r：重做上一次操作。
+</code></pre><h3 id="4-扩展模式下常用的命令。"><a href="#4-扩展模式下常用的命令。" class="headerlink" title="4.扩展模式下常用的命令。"></a>4.扩展模式下常用的命令。</h3><p>对文件更改完毕，是否保存？怎么退出？这些在扩展模式下。</p>
+<pre><code>：w    将文件存入/写入磁盘。
+：q    推出vim编辑器，不存盘。
+：wq   将文件存入磁盘，并推出。
+</code></pre><p>好了，简单的VIM文本编辑器功能介绍的差不多了，自己去试试吧！</p>
+
       
     </div>
 
@@ -502,12 +436,6 @@ chmod u=x dir
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/作业，linux/" rel="tag"># 作业，linux</a>
-          
-        </div>
-      
 
       
         
@@ -517,8 +445,8 @@ chmod u=x dir
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/16/linux打包压缩、磁盘分区作业/" rel="next" title="linux打包压缩，磁盘分区作业">
-                <i class="fa fa-chevron-left"></i> linux打包压缩，磁盘分区作业
+              <a href="/2017/03/16/linux打包文件/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -526,6 +454,10 @@ chmod u=x dir
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/16/Linux硬盘分区、格式化及系统管理/" rel="prev" title="linux硬盘分区、格式化及系统的管理">
+                linux硬盘分区、格式化及系统的管理 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -654,7 +586,7 @@ chmod u=x dir
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#作业一："><span class="nav-number">1.</span> <span class="nav-text">作业一：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作业二："><span class="nav-number">2.</span> <span class="nav-text">作业二：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作业三："><span class="nav-number">3.</span> <span class="nav-text">作业三：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作业四："><span class="nav-number">4.</span> <span class="nav-text">作业四：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#VIM编辑器的三种模式"><span class="nav-number">1.</span> <span class="nav-text">VIM编辑器的三种模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、编辑器中光标的移动。"><span class="nav-number">1.1.</span> <span class="nav-text">1、编辑器中光标的移动。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、进入插入模式。"><span class="nav-number">1.2.</span> <span class="nav-text">2、进入插入模式。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-命令模式下一些功能操作。"><span class="nav-number">1.3.</span> <span class="nav-text">3.命令模式下一些功能操作。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-常用的删除和复制、粘贴的按键"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 常用的删除和复制、粘贴的按键</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-撤销和重做操作。"><span class="nav-number">1.4.</span> <span class="nav-text">3.2 撤销和重做操作。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-扩展模式下常用的命令。"><span class="nav-number">1.5.</span> <span class="nav-text">4.扩展模式下常用的命令。</span></a></li></ol></li></ol></div>
             
 
           </div>
