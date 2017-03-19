@@ -87,27 +87,19 @@
 
 
 
-<meta name="description" content="swapon -s 查看当前swapon信息新增swap分区步骤：
-mkswap /dev/sdb8
-
-swapon -a /dev/sdb8">
+<meta name="description" content="/：根目录，只能包含目录，不能包含具体文件。
+/bin：    存放可执行文件。很多命令就对应/bin目录下的某个程序，例如 ls、cp、mkdir。/bin目录对所有用户有效。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="swapon新增">
-<meta property="og:url" content="http://yoursite.com/2017/03/19/新增swap新区/index.html">
+<meta property="og:title" content="linux系统下各文件夹的意义">
+<meta property="og:url" content="http://yoursite.com/2017/03/16/linux学习基础/linux系统主要文件的作用/index.html">
 <meta property="og:site_name" content="跃">
-<meta property="og:description" content="swapon -s 查看当前swapon信息新增swap分区步骤：
-mkswap /dev/sdb8
-
-swapon -a /dev/sdb8">
-<meta property="og:image" content="http://i.imgur.com/NWbdXUv.png">
-<meta property="og:updated_time" content="2017-03-19T06:57:55.643Z">
+<meta property="og:description" content="/：根目录，只能包含目录，不能包含具体文件。
+/bin：    存放可执行文件。很多命令就对应/bin目录下的某个程序，例如 ls、cp、mkdir。/bin目录对所有用户有效。">
+<meta property="og:updated_time" content="2017-03-19T07:09:23.105Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="swapon新增">
-<meta name="twitter:description" content="swapon -s 查看当前swapon信息新增swap分区步骤：
-mkswap /dev/sdb8
-
-swapon -a /dev/sdb8">
-<meta name="twitter:image" content="http://i.imgur.com/NWbdXUv.png">
+<meta name="twitter:title" content="linux系统下各文件夹的意义">
+<meta name="twitter:description" content="/：根目录，只能包含目录，不能包含具体文件。
+/bin：    存放可执行文件。很多命令就对应/bin目录下的某个程序，例如 ls、cp、mkdir。/bin目录对所有用户有效。">
 
 
 
@@ -135,13 +127,13 @@ swapon -a /dev/sdb8">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/19/新增swap新区/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/16/linux学习基础/linux系统主要文件的作用/"/>
 
 
 
 
 
-  <title> swapon新增 | 跃 </title>
+  <title> linux系统下各文件夹的意义 | 跃 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -280,7 +272,7 @@ swapon -a /dev/sdb8">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/19/新增swap新区/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/16/linux学习基础/linux系统主要文件的作用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="G-YUE">
@@ -301,7 +293,7 @@ swapon -a /dev/sdb8">
             
             
               
-                swapon新增
+                linux系统下各文件夹的意义
               
             
           </h1>
@@ -316,8 +308,8 @@ swapon -a /dev/sdb8">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-19T14:55:09+08:00">
-                2017-03-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-16T18:34:53+08:00">
+                2017-03-16
               </time>
             
 
@@ -326,6 +318,28 @@ swapon -a /dev/sdb8">
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux学习基础/" itemprop="url" rel="index">
+                    <span itemprop="name">linux学习基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -352,49 +366,21 @@ swapon -a /dev/sdb8">
       
 
       
-        <p>swapon -s 查看当前swapon信息<br>新增swap分区步骤：</p>
-<pre><code>mkswap /dev/sdb8
-
-swapon -a /dev/sdb8
-</code></pre><a id="more"></a>
-<p>卸载swap分区。</p>
-<pre><code>swapoff /dev/sdb8
-</code></pre><p>free  查看内存信息</p>
-<pre><code>[root@linuxso.com ~]#free -m
-        total    used   free   shared    buffers   cached
-   Mem: 503      368     134        0      56          249
--/+ buffers/cache: 62    440
-   Swap: 1023     0     1023
-</code></pre><p><img src="http://i.imgur.com/NWbdXUv.png" alt=""></p>
-<p>Mem：表示物理内存统计</p>
-<p>-/+ buffers/cached：表示物理内存的缓存统计</p>
-<p>Swap：表示硬盘上交换分区的使用情况，这里我们不去关心。</p>
-<p>第1行 Mem：</p>
-<pre><code>total：表示物理内存总量。
-
-used：表示总计分配给缓存（包含buffers 与cache ）使用的数量，但其中可能部分缓存并未实际使用。
-
-free：未被分配的内存。
-
-shared：共享内存，一般系统不会用到，这里也不讨论。
-
-buffers：系统分配但未被使用的buffers 数量。
-
-cached：系统分配但未被使用的cache 数量。
-
-available: 可以使用的内存总量
-</code></pre><p>buffer 与cache 的区别见后面。</p>
-<p>total = used + free</p>
-<p>第2行 -/+ buffers/cached：</p>
-<pre><code>used：也就是第一行中的used - buffers-cached 也是实际使用的内存总量。
-
-free：未被使用的buffers 与cache 和未被分配的内存之和，这就是系统当前实际可用内存。
-</code></pre><p>free 2= buffers1 + cached1 + free1 //free2为第二行、buffers1等为第一行<br>buffer 与cache 的区别：</p>
-<p>buffer是即将要被写入磁盘的，而cache是被从磁盘中读出来的</p>
-<p>清楚cache缓存：</p>
-<pre><code>echo 3 &gt; /proc/sys/vm/drop_caches
-</code></pre><p>uname -a  查看当前系统的所有信息。有内核版本、CPU</p>
-<p>cat /etc/redhat-release 查看当前操作系统的版本。</p>
+        <p>/：根目录，只能包含目录，不能包含具体文件。</p>
+<p>/bin：    存放可执行文件。很多命令就对应/bin目录下的某个程序，例如 ls、cp、mkdir。/bin目录对所有用户有效。</p>
+<a id="more"></a>
+<p>/sbin：    和 /bin 类似，主要包含可执行文件，不过一般是系统管理所需要的，不是所有用户都需要。</p>
+<p>/dev：    硬件驱动程序。例如声卡、磁盘驱动等，还有如 /dev/null、/dev/console、/dev/zero、/dev/full 等文件。</p>
+<p>/etc：    主要包含系统配置文件和用户、用户组配置文件。</p>
+<p>/lib：    主要包含共享库文件，类似于Windows下的DLL；有时也会包含内核相关文件。</p>
+<p>/boot：    系统启动文件，例如Linux内核、引导程序等。</p>
+<p>/home：    用户工作目录（主目录），每个用户都会分配一个目录。</p>
+<p>/mnt：    临时挂载文件系统。这个目录一般是用于存放挂载储存设备的挂载目录的，例如挂载CD-ROM的cdrom目录。</p>
+<p>/proc：    操作系统运行时，进程（正在运行中的程序）信息及内核信息（比如cpu、硬盘分区、内存信息等）存放在这里。/proc目录伪装的文件系统proc的挂载目录，proc并不是真正的文件系统。</p>
+<p>/tmp：    临时文件目录，系统重启后不会被保存。</p>
+<p>/usr：    /user目下的文件比较混杂，包含了管理命令、共享文件、库文件等，可以被很多用户使用。</p>
+<p>/var：    主要包含一些可变长度的文件，会经常对数据进行读写，例如日志文件和打印队列里的文件。</p>
+<hr>
 
       
     </div>
@@ -431,8 +417,8 @@ free：未被使用的buffers 与cache 和未被分配的内存之和，这就�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/19/新建swap、软件包的安装等/" rel="next" title="软件包的安装、杀死进程等作业">
-                <i class="fa fa-chevron-left"></i> 软件包的安装、杀死进程等作业
+              <a href="/2017/03/16/作业/linux用户命令作业/" rel="next" title="LINUX作业2">
+                <i class="fa fa-chevron-left"></i> LINUX作业2
               </a>
             
           </div>
@@ -440,6 +426,10 @@ free：未被使用的buffers 与cache 和未被分配的内存之和，这就�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/17/linux学习基础/软件包的安装和管理/" rel="prev" title="软件包的安装和管理">
+                软件包的安装和管理 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -502,7 +492,7 @@ free：未被使用的buffers 与cache 和未被分配的内存之和，这就�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
