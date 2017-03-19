@@ -1,0 +1,860 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="作业一：新建swap分区1)    开启Linux系统前添加一块大小为15G的SCSI硬盘
+
+2)    开启系统，右击桌面，打开终端
+
+3)    为新加的硬盘分区，一个主分区大小为5G，剩余空间给扩展分区，在扩展分区上划分1个逻辑分区，大小为5G
+
+4)    格式化主分区为ext3系统
+
+5)    将逻辑分区设置为交换分区
+
+6)    启用上一步的交换分区并查看交换分区的状态
+
+作业二：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件包的安装、杀死进程等作业">
+<meta property="og:url" content="http://yoursite.com/2017/03/19/新建swap、软件包的安装等/index.html">
+<meta property="og:site_name" content="跃">
+<meta property="og:description" content="作业一：新建swap分区1)    开启Linux系统前添加一块大小为15G的SCSI硬盘
+
+2)    开启系统，右击桌面，打开终端
+
+3)    为新加的硬盘分区，一个主分区大小为5G，剩余空间给扩展分区，在扩展分区上划分1个逻辑分区，大小为5G
+
+4)    格式化主分区为ext3系统
+
+5)    将逻辑分区设置为交换分区
+
+6)    启用上一步的交换分区并查看交换分区的状态
+
+作业二：">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317195023698-312954306.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184547026-688456128.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184559651-428266754.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184606979-776858317.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184614260-618589093.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184619198-2043220625.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184630229-438134590.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184704416-676240335.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184713416-1880185219.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184727057-136127183.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184736760-1070222795.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184743338-760442154.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184754948-1216419155.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184800276-1382558766.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184804526-542802075.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184808870-1571969011.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184815416-272852396.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184820479-525855149.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184902635-240972896.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184906448-1608105149.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184909838-525984586.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184916370-1223228097.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317185008963-792281539.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317185012276-1782765276.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317185110448-974630991.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317185115557-1452069199.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317185123260-1915970301.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317185313088-1021347207.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317185340588-565992248.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317185604026-1578887057.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317185646729-1526698078.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317185658901-374158064.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317185705416-1579983643.png">
+<meta property="og:updated_time" content="2017-03-17T11:51:15.671Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="软件包的安装、杀死进程等作业">
+<meta name="twitter:description" content="作业一：新建swap分区1)    开启Linux系统前添加一块大小为15G的SCSI硬盘
+
+2)    开启系统，右击桌面，打开终端
+
+3)    为新加的硬盘分区，一个主分区大小为5G，剩余空间给扩展分区，在扩展分区上划分1个逻辑分区，大小为5G
+
+4)    格式化主分区为ext3系统
+
+5)    将逻辑分区设置为交换分区
+
+6)    启用上一步的交换分区并查看交换分区的状态
+
+作业二：">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317195023698-312954306.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/19/新建swap、软件包的安装等/"/>
+
+
+
+
+
+  <title> 软件包的安装、杀死进程等作业 | 跃 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">跃</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">记录学习的技能和遇到的问题</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/19/新建swap、软件包的安装等/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="G-YUE">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="跃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                软件包的安装、杀死进程等作业
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-19T14:44:58+08:00">
+                2017-03-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux作业/" itemprop="url" rel="index">
+                    <span itemprop="name">linux作业</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="作业一：新建swap分区"><a href="#作业一：新建swap分区" class="headerlink" title="作业一：新建swap分区"></a>作业一：新建swap分区</h1><p>1)    开启Linux系统前添加一块大小为15G的SCSI硬盘</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317195023698-312954306.png" alt=""></p>
+<p>2)    开启系统，右击桌面，打开终端</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184547026-688456128.png" alt=""></p>
+<p>3)    为新加的硬盘分区，一个主分区大小为5G，剩余空间给扩展分区，在扩展分区上划分1个逻辑分区，大小为5G</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184559651-428266754.png" alt=""></p>
+<p>4)    格式化主分区为ext3系统</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184606979-776858317.png" alt=""></p>
+<p>5)    将逻辑分区设置为交换分区</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184614260-618589093.png" alt=""></p>
+<p>6)    启用上一步的交换分区并查看交换分区的状态</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184619198-2043220625.png" alt=""></p>
+<p>作业二：free命令查看内存</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184630229-438134590.png" alt=""></p>
+<p>第1行 Mem：</p>
+<pre><code>total：表示物理内存总量。
+
+used：表示总计分配给缓存使用的数量，但其中可能部分缓存并未实际使用。
+
+free：未被分配的内存。
+
+shared：共享内存，一般系统不会用到，这里也不讨论。
+
+buffers：系统分配但未被使用的buffers 数量。
+
+cached：系统分配但未被使用的cache 数量。
+
+available: 可以使用的内存总量
+</code></pre><p>整理buffer与cache的作用</p>
+<pre><code>buffer: 即将要被写入磁盘的数据
+
+cache： 从硬盘中读出的数据
+</code></pre><p>计算真实的内存使用率</p>
+<pre><code>从图中可以看出：内存使用率大概是：（999936- 263232）/999936=73%
+</code></pre><h1 id="作业三：dd命令测试硬盘速度"><a href="#作业三：dd命令测试硬盘速度" class="headerlink" title="作业三：dd命令测试硬盘速度"></a>作业三：dd命令测试硬盘速度</h1><p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184704416-676240335.png" alt=""></p>
+<p>从图中可以看出，硬盘的读写速度大概在105M/秒。</p>
+<h1 id="作业四：查找一个名为firewalld的进程，并且将其强制杀死"><a href="#作业四：查找一个名为firewalld的进程，并且将其强制杀死" class="headerlink" title="作业四：查找一个名为firewalld的进程，并且将其强制杀死"></a>作业四：查找一个名为firewalld的进程，并且将其强制杀死</h1><p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184713416-1880185219.png" alt=""></p>
+<h1 id="作业五：rpm命令"><a href="#作业五：rpm命令" class="headerlink" title="作业五：rpm命令"></a>作业五：rpm命令</h1><p>1)    挂载光盘文件到/media目录</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184727057-136127183.png" alt=""></p>
+<p>2)    进去/media目录下的Packages目录</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184736760-1070222795.png" alt=""></p>
+<p>3)    查看系统已安装的所有rpm包</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184743338-760442154.png" alt=""></p>
+<p>4)    查看系统是否安装dhcp软件包</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184754948-1216419155.png" alt=""></p>
+<p>5)    安装dhcp软件包</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184800276-1382558766.png" alt=""></p>
+<p>6)    查看dhcp软件包的信息</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184804526-542802075.png" alt=""></p>
+<p>7)    查看dhcp软件包中所包含的所有文件</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184808870-1571969011.png" alt=""></p>
+<p>8)    查看/bin/ls文件是由哪个软件包产生</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184815416-272852396.png" alt=""></p>
+<p>9)    卸载dhcp软件包</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184820479-525855149.png" alt=""></p>
+<h1 id="作业六：yum命令"><a href="#作业六：yum命令" class="headerlink" title="作业六：yum命令"></a>作业六：yum命令</h1><p>1） 自定义yum仓库：createrepo</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184902635-240972896.png" alt=""></p>
+<p>2） 自定义repo文件</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184906448-1608105149.png" alt=""></p>
+<p>3） 使用yum命令安装httpd软件包</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184909838-525984586.png" alt=""></p>
+<p>4） 卸载httpd软件包：yum –y remove 软件名</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317184916370-1223228097.png" alt=""></p>
+<p>5）    使用yum安装组件’KDE 桌面’：yum –y groupinstall 组件名</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317185008963-792281539.png" alt=""></p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317185012276-1782765276.png" alt=""></p>
+<p>6)    掌握使用yum删除组件‘KDE 桌面’:yum –y groupremove 组件名</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317185110448-974630991.png" alt=""></p>
+<p>7）    掌握清除yum缓存：yum clean all</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317185115557-1452069199.png" alt=""></p>
+<p>8） 使用yum查找软件包：yum search 软件包名</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317185123260-1915970301.png" alt=""></p>
+<h1 id="作业七：源码安装python3-6"><a href="#作业七：源码安装python3-6" class="headerlink" title="作业七：源码安装python3.6"></a>作业七：源码安装python3.6</h1><h2 id="1、下载python3-6-源码包。"><a href="#1、下载python3-6-源码包。" class="headerlink" title="1、下载python3.6 源码包。"></a>1、下载python3.6 源码包。</h2><p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317185313088-1021347207.png" alt=""></p>
+<h2 id="2-将安装包解压。"><a href="#2-将安装包解压。" class="headerlink" title="2.将安装包解压。"></a>2.将安装包解压。</h2><p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317185340588-565992248.png" alt=""></p>
+<h2 id="3-进入解压后的目录。配置要安装的路径。"><a href="#3-进入解压后的目录。配置要安装的路径。" class="headerlink" title="3.进入解压后的目录。配置要安装的路径。"></a>3.进入解压后的目录。配置要安装的路径。</h2><p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317185604026-1578887057.png" alt=""></p>
+<h2 id="4-安装"><a href="#4-安装" class="headerlink" title="4.安装"></a>4.安装</h2><p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317185646729-1526698078.png" alt=""></p>
+<h2 id="5-配置环境变量"><a href="#5-配置环境变量" class="headerlink" title="5.配置环境变量"></a>5.配置环境变量</h2><p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317185658901-374158064.png" alt=""></p>
+<h2 id="6-重启系统，使用python3-6"><a href="#6-重启系统，使用python3-6" class="headerlink" title="6.重启系统，使用python3.6"></a>6.重启系统，使用python3.6</h2><p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170317185705416-1579983643.png" alt=""></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/17/进程/" rel="next" title="进程线程">
+                <i class="fa fa-chevron-left"></i> 进程线程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/19/新增swap新区/" rel="prev" title="swapon新增">
+                swapon新增 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="G-YUE" />
+          <p class="site-author-name" itemprop="name">G-YUE</p>
+           
+              <p class="site-description motion-element" itemprop="description">做自己爱做的事，爱自己在做的事！</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#作业一：新建swap分区"><span class="nav-number">1.</span> <span class="nav-text">作业一：新建swap分区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作业三：dd命令测试硬盘速度"><span class="nav-number">2.</span> <span class="nav-text">作业三：dd命令测试硬盘速度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作业四：查找一个名为firewalld的进程，并且将其强制杀死"><span class="nav-number">3.</span> <span class="nav-text">作业四：查找一个名为firewalld的进程，并且将其强制杀死</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作业五：rpm命令"><span class="nav-number">4.</span> <span class="nav-text">作业五：rpm命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作业六：yum命令"><span class="nav-number">5.</span> <span class="nav-text">作业六：yum命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作业七：源码安装python3-6"><span class="nav-number">6.</span> <span class="nav-text">作业七：源码安装python3.6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、下载python3-6-源码包。"><span class="nav-number">6.1.</span> <span class="nav-text">1、下载python3.6 源码包。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-将安装包解压。"><span class="nav-number">6.2.</span> <span class="nav-text">2.将安装包解压。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-进入解压后的目录。配置要安装的路径。"><span class="nav-number">6.3.</span> <span class="nav-text">3.进入解压后的目录。配置要安装的路径。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-安装"><span class="nav-number">6.4.</span> <span class="nav-text">4.安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-配置环境变量"><span class="nav-number">6.5.</span> <span class="nav-text">5.配置环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-重启系统，使用python3-6"><span class="nav-number">6.6.</span> <span class="nav-text">6.重启系统，使用python3.6</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">G-YUE</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
