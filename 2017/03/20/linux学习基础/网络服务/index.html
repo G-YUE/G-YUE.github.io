@@ -87,27 +87,25 @@
 
 
 
-<meta name="description" content="swapon -s 查看当前swapon信息新增swap分区步骤：
-mkswap /dev/sdb8
-
-swapon -a /dev/sdb8">
+<meta name="description" content="netstat -tunalp： 查看本地的端口状态。
+命令行下启动网络；
+首先ifconfig 查看网卡；
+然后ifup 网卡类型，上面中每块网卡最前面的代号。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="swapon新增">
-<meta property="og:url" content="http://yoursite.com/2017/03/19/linux学习基础/新增swap新区/index.html">
+<meta property="og:title" content="nginx和nfs网络服务">
+<meta property="og:url" content="http://yoursite.com/2017/03/20/linux学习基础/网络服务/index.html">
 <meta property="og:site_name" content="跃">
-<meta property="og:description" content="swapon -s 查看当前swapon信息新增swap分区步骤：
-mkswap /dev/sdb8
-
-swapon -a /dev/sdb8">
-<meta property="og:image" content="http://i.imgur.com/NWbdXUv.png">
-<meta property="og:updated_time" content="2017-03-19T07:06:34.885Z">
+<meta property="og:description" content="netstat -tunalp： 查看本地的端口状态。
+命令行下启动网络；
+首先ifconfig 查看网卡；
+然后ifup 网卡类型，上面中每块网卡最前面的代号。">
+<meta property="og:updated_time" content="2017-03-20T11:49:45.321Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="swapon新增">
-<meta name="twitter:description" content="swapon -s 查看当前swapon信息新增swap分区步骤：
-mkswap /dev/sdb8
-
-swapon -a /dev/sdb8">
-<meta name="twitter:image" content="http://i.imgur.com/NWbdXUv.png">
+<meta name="twitter:title" content="nginx和nfs网络服务">
+<meta name="twitter:description" content="netstat -tunalp： 查看本地的端口状态。
+命令行下启动网络；
+首先ifconfig 查看网卡；
+然后ifup 网卡类型，上面中每块网卡最前面的代号。">
 
 
 
@@ -135,13 +133,13 @@ swapon -a /dev/sdb8">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/19/linux学习基础/新增swap新区/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/20/linux学习基础/网络服务/"/>
 
 
 
 
 
-  <title> swapon新增 | 跃 </title>
+  <title> nginx和nfs网络服务 | 跃 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -280,7 +278,7 @@ swapon -a /dev/sdb8">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/19/linux学习基础/新增swap新区/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/20/linux学习基础/网络服务/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="G-YUE">
@@ -301,7 +299,7 @@ swapon -a /dev/sdb8">
             
             
               
-                swapon新增
+                nginx和nfs网络服务
               
             
           </h1>
@@ -316,8 +314,8 @@ swapon -a /dev/sdb8">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-19T14:55:09+08:00">
-                2017-03-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-20T19:45:21+08:00">
+                2017-03-20
               </time>
             
 
@@ -374,50 +372,84 @@ swapon -a /dev/sdb8">
       
 
       
-        <p>swapon -s 查看当前swapon信息<br>新增swap分区步骤：</p>
-<pre><code>mkswap /dev/sdb8
-
-swapon -a /dev/sdb8
+        <p>netstat -tunalp： 查看本地的端口状态。</p>
+<p>命令行下启动网络；</p>
+<pre><code>首先ifconfig 查看网卡；
+然后ifup 网卡类型，上面中每块网卡最前面的代号。
 </code></pre><a id="more"></a>
-<p>卸载swap分区。</p>
-<pre><code>swapoff /dev/sdb8
-</code></pre><p>free  查看内存信息</p>
-<pre><code>[root@linuxso.com ~]#free -m
-        total    used   free   shared    buffers   cached
-   Mem: 503      368     134        0      56          249
--/+ buffers/cache: 62    440
-   Swap: 1023     0     1023
-</code></pre><p><img src="http://i.imgur.com/NWbdXUv.png" alt=""></p>
-<p>Mem：表示物理内存统计</p>
-<p>-/+ buffers/cached：表示物理内存的缓存统计</p>
-<p>Swap：表示硬盘上交换分区的使用情况，这里我们不去关心。</p>
-<p>第1行 Mem：</p>
-<pre><code>total：表示物理内存总量。
+<h1 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h1><p>##安装nginx：</p>
+<p>安装nginx前需要先安装扩展包。</p>
+<p>安装扩展包：</p>
+<pre><code>yum install epel-release -y
+</code></pre><p>安装nginx：</p>
+<pre><code>yum install nginx
+</code></pre><p>配置文件存放位置: </p>
+<pre><code>/etc/nginx/nginx.conf
+</code></pre><p>访问日志存放位置：</p>
+<pre><code>/var/log/nginx/access.log
+</code></pre><p>配置文件中：</p>
+<pre><code>server{
+    listen   80   #监听端口
+    root    /usr/share/nginx/html;  #存放文件：web网站的根目录
+    }
+location  / ｛
+    root /usr/share/nginx1/html1； #web网站的根目录
+    index index.html;  web网站的默认主页。
+｝
+</code></pre><p>启动服务：</p>
+<pre><code>systemctl start nginx
+</code></pre><p>重启服务:</p>
+<pre><code>systemctl restart nginx
+</code></pre><p>重载服务：</p>
+<pre><code>systemctl reload nginx
+</code></pre><p>查看是否启动：</p>
+<pre><code>systemctl status nginx
+</code></pre><p>关闭防火墙： </p>
+<pre><code>systemctl stop firewalld
+</code></pre><p>设置开机也不启动防火墙：</p>
+<pre><code>systemctl disable firewalld
+</code></pre><p>设置开机启动：</p>
+<pre><code>systemctl enable firewalld
+</code></pre><h2 id="正向代理和反向代理。"><a href="#正向代理和反向代理。" class="headerlink" title="正向代理和反向代理。"></a>正向代理和反向代理。</h2><p>更改配置文件内容新增：</p>
+<pre><code>http {
+upstream myapp1 {
+    server 192.168.16.100：80;
+    server 192.168.16.101：80;
+    server 192.168.16.102：80;
+}
 
-used：表示总计分配给缓存（包含buffers 与cache ）使用的数量，但其中可能部分缓存并未实际使用。
+server {
+    listen 80;
 
-free：未被分配的内存。
-
-shared：共享内存，一般系统不会用到，这里也不讨论。
-
-buffers：系统分配但未被使用的buffers 数量。
-
-cached：系统分配但未被使用的cache 数量。
-
-available: 可以使用的内存总量
-</code></pre><p>buffer 与cache 的区别见后面。</p>
-<p>total = used + free</p>
-<p>第2行 -/+ buffers/cached：</p>
-<pre><code>used：也就是第一行中的used - buffers-cached 也是实际使用的内存总量。
-
-free：未被使用的buffers 与cache 和未被分配的内存之和，这就是系统当前实际可用内存。
-</code></pre><p>free 2= buffers1 + cached1 + free1 //free2为第二行、buffers1等为第一行<br>buffer 与cache 的区别：</p>
-<p>buffer是即将要被写入磁盘的，而cache是被从磁盘中读出来的</p>
-<p>清楚cache缓存：</p>
-<pre><code>echo 3 &gt; /proc/sys/vm/drop_caches
-</code></pre><p>uname -a  查看当前系统的所有信息。有内核版本、CPU</p>
-<p>cat /etc/redhat-release 查看当前操作系统的版本。</p>
-
+    location / {
+        proxy_pass http://myapp1;
+    }
+}
+</code></pre><p>}</p>
+<p>负载均衡：</p>
+<pre><code>round-robin :轮循分配    # 默认
+least-connected ：最小连接调度 #在server最后加入 weight=数字；
+ip——hash： 哈希算法，可以保持会话。 #在server上大括号下添加ip_hash;
+</code></pre><p>url：统一资源定位符  定位某个主机</p>
+<p>uri：统一资源标识符  定位某个主机下的某个文件</p>
+<h1 id="nfs：网络文件系统。"><a href="#nfs：网络文件系统。" class="headerlink" title="nfs：网络文件系统。"></a>nfs：网络文件系统。</h1><h2 id="安装nfs："><a href="#安装nfs：" class="headerlink" title="安装nfs："></a>安装nfs：</h2><p>安装nfs之前需要先安装rpc：</p>
+<p>rpc协议：远程过程调用</p>
+<p>安装rpc：</p>
+<pre><code>yum install rpcbind
+</code></pre><p>安装nfs：</p>
+<pre><code>yum install nfs-utils -y
+</code></pre><p>配置文件/etc/exports文件内容格式：</p>
+<pre><code>&lt;输出目录&gt; [客户端1 选项（访问权限,用户映射,其他）] [客户端2 选项（访问权限,用户映射,其他）]
+</code></pre><p>修改配置文件：</p>
+<pre><code>[root@MiWiFi-R3-srv nginx]# cat /etc/exports
+/share 192.168.31.0/24(rw,sync,fsid=0)
+</code></pre><p>启动服务：</p>
+<pre><code>#systemctl start rpcbind.service   #先开启rpcbind
+#systemctl start nfs-server.service
+</code></pre><p>exportfs:</p>
+<pre><code>#exportfs
+/share         192.168.31.0/24
+</code></pre>
       
     </div>
 
@@ -453,8 +485,8 @@ free：未被使用的buffers 与cache 和未被分配的内存之和，这就�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/19/作业/新建swap、软件包的安装等/" rel="next" title="软件包的安装、杀死进程等作业">
-                <i class="fa fa-chevron-left"></i> 软件包的安装、杀死进程等作业
+              <a href="/2017/03/19/linux学习基础/新增swap新区/" rel="next" title="swapon新增">
+                <i class="fa fa-chevron-left"></i> swapon新增
               </a>
             
           </div>
@@ -463,8 +495,8 @@ free：未被使用的buffers 与cache 和未被分配的内存之和，这就�
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/20/linux学习基础/网络服务/" rel="prev" title="nginx和nfs网络服务">
-                nginx和nfs网络服务 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/20/作业/nginx和nfs网络服务/" rel="prev" title="nginx和nfs作业">
+                nginx和nfs作业 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -512,8 +544,17 @@ free：未被使用的buffers 与cache 和未被分配的内存之和，这就�
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -575,6 +616,22 @@ free：未被使用的buffers 与cache 和未被分配的内存之和，这就�
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#nginx"><span class="nav-number">1.</span> <span class="nav-text">nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#正向代理和反向代理。"><span class="nav-number">1.1.</span> <span class="nav-text">正向代理和反向代理。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nfs：网络文件系统。"><span class="nav-number">2.</span> <span class="nav-text">nfs：网络文件系统。</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装nfs："><span class="nav-number">2.1.</span> <span class="nav-text">安装nfs：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
