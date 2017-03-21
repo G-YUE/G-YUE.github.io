@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="作业，linux," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -87,19 +87,28 @@
 
 
 
-<meta name="description" content="作业一：1)    新建用户natasha，uid为1000，gid为555，备注信息为“master”
-ueradd -u 1000 -g 555 -c &amp;apos;master&amp;apos; natasha">
+<meta name="description" content="shell:
+1、命令解释其
+
+2、shell脚本">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LINUX作业2">
-<meta property="og:url" content="http://yoursite.com/2017/03/16/作业/linux用户命令作业/index.html">
+<meta property="og:title" content="shell">
+<meta property="og:url" content="http://yoursite.com/2017/03/21/linux学习基础/shell/index.html">
 <meta property="og:site_name" content="跃">
-<meta property="og:description" content="作业一：1)    新建用户natasha，uid为1000，gid为555，备注信息为“master”
-ueradd -u 1000 -g 555 -c &amp;apos;master&amp;apos; natasha">
-<meta property="og:updated_time" content="2017-03-16T09:28:06.649Z">
+<meta property="og:description" content="shell:
+1、命令解释其
+
+2、shell脚本">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170321194241111-960601888.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170321194248268-1346213426.png">
+<meta property="og:updated_time" content="2017-03-21T11:53:40.404Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LINUX作业2">
-<meta name="twitter:description" content="作业一：1)    新建用户natasha，uid为1000，gid为555，备注信息为“master”
-ueradd -u 1000 -g 555 -c &amp;apos;master&amp;apos; natasha">
+<meta name="twitter:title" content="shell">
+<meta name="twitter:description" content="shell:
+1、命令解释其
+
+2、shell脚本">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170321194241111-960601888.png">
 
 
 
@@ -127,13 +136,13 @@ ueradd -u 1000 -g 555 -c &amp;apos;master&amp;apos; natasha">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/16/作业/linux用户命令作业/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/21/linux学习基础/shell/"/>
 
 
 
 
 
-  <title> LINUX作业2 | 跃 </title>
+  <title> shell | 跃 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -272,7 +281,7 @@ ueradd -u 1000 -g 555 -c &amp;apos;master&amp;apos; natasha">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/16/作业/linux用户命令作业/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/21/linux学习基础/shell/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="G-YUE">
@@ -293,7 +302,7 @@ ueradd -u 1000 -g 555 -c &amp;apos;master&amp;apos; natasha">
             
             
               
-                LINUX作业2
+                shell
               
             
           </h1>
@@ -308,8 +317,8 @@ ueradd -u 1000 -g 555 -c &amp;apos;master&amp;apos; natasha">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-16T16:59:09+08:00">
-                2017-03-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-21T19:54:24+08:00">
+                2017-03-21
               </time>
             
 
@@ -331,8 +340,8 @@ ueradd -u 1000 -g 555 -c &amp;apos;master&amp;apos; natasha">
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux作业/" itemprop="url" rel="index">
-                    <span itemprop="name">linux作业</span>
+                  <a href="/categories/linux学习基础/" itemprop="url" rel="index">
+                    <span itemprop="name">linux学习基础</span>
                   </a>
                 </span>
 
@@ -366,115 +375,84 @@ ueradd -u 1000 -g 555 -c &amp;apos;master&amp;apos; natasha">
       
 
       
-        <h2 id="作业一："><a href="#作业一：" class="headerlink" title="作业一："></a>作业一：</h2><p>1)    新建用户natasha，uid为1000，gid为555，备注信息为“master”</p>
-<pre><code>ueradd -u 1000 -g 555 -c &apos;master&apos; natasha
+        <p>shell:</p>
+<pre><code>1、命令解释其
+
+2、shell脚本
 </code></pre><a id="more"></a>
-<p>2)    修改natasha用户的家目录为/Natasha</p>
-<pre><code>usermod -d /home/Ntasha natasha
-</code></pre><p>3)    查看用户信息配置文件的最后一行</p>
-<pre><code>tail -n 1 /etc/passwd
-</code></pre><p>4)    为natasha用户设置密码“123”</p>
-<pre><code>passwd natasha
-新的密码：123
-重新输入新的密码：123
-</code></pre><p>5)    查看用户密码配置文件的最后一行</p>
-<pre><code>tail -n 1 /etc/shadow
-</code></pre><p>6)    将natasha用户账户锁定</p>
-<pre><code>usermod -L natasha
-</code></pre><p>7)    将natasha用户账户解锁</p>
-<pre><code>usermod -U natasha
-</code></pre><p>8)    新建组police，gid为1999</p>
-<pre><code>groupadd -g 1999 police
-</code></pre><p>9)    查看组配置文件的最后一行</p>
-<pre><code>tail -n 1 /etc/group
-</code></pre><p>10)    将natasha用户加入police组</p>
-<pre><code>usermod -G 1999 natasha
-</code></pre><p>11)    修改police组的组名为jingcha</p>
-<pre><code>groupmod -n jingcha  police
-</code></pre><p>12)    删除natasha用户，连家目录和邮箱一起删除</p>
-<pre><code>userdel -r natasha
-</code></pre><p>13)    删除jingcha组</p>
-<pre><code>groupdel jingcha
-</code></pre><h2 id="作业二："><a href="#作业二：" class="headerlink" title="作业二："></a>作业二：</h2><p>1)    在用户的主目录下创建目录test，进入test创建空文件file1</p>
-<pre><code>mkdir test
-cd test
-touch file1
-</code></pre><p>2)    以长格式形式显示文件信息，注意文件的权限和所属用户和组</p>
-<pre><code>ll file1
-</code></pre><p>3)    为文件file1设置权限，使其他用户可以对此文件进行写操作。</p>
-<pre><code>chmod o=w file1
-</code></pre><p>4)    查看设置结果，</p>
-<pre><code>ll file
-</code></pre><p>5)    取消同组用户对文件file1的读取权限，并查看设置结果。</p>
-<pre><code>chmod g-r file1
-</code></pre><p>6)    用数字表示法为文件file1设置权限，所有者可读、可写、可执<br>行，所属组用户和其他用户只具有读和执行的权限。设置完成后查看设置结果。</p>
-<pre><code>chmod 755 file1
-</code></pre><p>7)    用数字形式更改文件file1的权限，使所有者只能读取此文件。其他任何用户都没有权限。查看设置结果。</p>
-<pre><code>chmod 400 file1
-</code></pre><p>8)    回到上层目录，查看test的权限</p>
-<pre><code>cd ..
-ll -d test
-</code></pre><p>9)    为其他用户添加对此目录的写权限</p>
-<pre><code>chmod o+w test
-</code></pre><h2 id="作业三："><a href="#作业三：" class="headerlink" title="作业三："></a>作业三：</h2><p>以操作文件的方式，新建一个用户alex</p>
-<pre><code>一、在passwd中添加alex。
-vim /etc/passwd 添加内容如下:
-alex:x:1004:1004:alex:/home/alex:/bin/bash
-二、在shadow中添加alex。
-vim /etc/shadow 添加内容如下：
-alex:！！:17240:0:99999:7:::
-三、在group中添加alex。
-vim /etc/group 添加内容如下：
-alex:x:1004:
-四、在gshadow中添加alex。
-vim /etc/gshadow 添加内容如下。
-alex:!::
-五、建立家目录和邮箱。
-cd /home
-mkdir alex
-cd /var/spool/mail
-touch alex
-六、往家目录里拷贝模版。
-cp -R /etc/skel/.[!.]* /home/alex
-七、更改所建的目录和文件的属主和属组。
-chown -R alex.alex /home/alex
-chown alex.alex /var/spool/mail/alex
-八、给alex设置密码，并登录验证。
-passwd alex
-</code></pre><h2 id="作业四："><a href="#作业四：" class="headerlink" title="作业四："></a>作业四：</h2><p>1) 新建目录/test/dir，属主为tom，数组为group1，/test目录的权限为777</p>
-<pre><code>mkdir -p /test/dir
-chown -R tom.group1 /test
-chmod 777 test
-</code></pre><p>2) 新建用户jack，切换到jack用户下，验证jack用户对dir目录的rwx权限（开启另外一个终端，依次修改dir目录的others权限）</p>
-<pre><code>chmod o=r dir
-chmod o=w dir
-chmod o=x dir
-</code></pre><p>3）将jack加入group1组，验证jack用户对dir目录的rwx权限（开启另外一个终端，依次修改dir目录的group权限）</p>
-<pre><code>usermod -G group1 jack
-chmod g=r dir
-chmod g=w dir
-chmod g=x dir
-</code></pre><p>4）切换到tom用户，验证tom用户对dir目录的rwx权限（开启另外一个终端，依次修改dir目录的user权限）</p>
-<pre><code>chmod u=r dir
-chmod u=w dir
-chmod u=x dir
-</code></pre><p>5）在dir目录内新建文件tom.txt,属主为tom，属组为group1，/test目录的权限为777</p>
-<pre><code>touch tom.txt
-chown tom.group1 tom.txt
-chmod 777 tom.txt
-</code></pre><p>6）新建用户rose，切换到rose用户下，验证rose用户对tom.txt的rwx权限（开启另外一个终端，依次修改tom.txt的others权限来配合验证过程）</p>
-<pre><code>chmod o=r dir
-chmod o=w dir
-chmod o=x dir
-</code></pre><p>7）将rose加入group1组，在rose用户下，验证rose用户对tom.txt的rwx权限（开启另外一个终端，依次修改tom.txt的group1权限来配合验证过程）</p>
-<pre><code>usermod -G group1 rose
-chmod g=r dir
-chmod g=w dir
-chmod g=x dir
-</code></pre><p>8）切换到tom用户，验证tom用户对tom.txt的rwx权限（开启另外一个终端，依次修改tom.txt的user权限来配合验证过程）</p>
-<pre><code>chmod u=r dir
-chmod u=w dir
-chmod u=x dir
+<p>source 脚本   #执行脚本文件。</p>
+<h1 id="命令及优先级"><a href="#命令及优先级" class="headerlink" title="命令及优先级"></a>命令及优先级</h1><pre><code>1、别名      由alias指定
+2、复合命令 
+3、函数      由function指定
+4、内置命令  builtin命令
+5、脚本或可执行函数  $path
+</code></pre><h2 id="验证别名、内部命令和脚本可执行命令优先级"><a href="#验证别名、内部命令和脚本可执行命令优先级" class="headerlink" title="验证别名、内部命令和脚本可执行命令优先级"></a>验证别名、内部命令和脚本可执行命令优先级</h2><h3 id="别名、内置函数和脚本函数的比较"><a href="#别名、内置函数和脚本函数的比较" class="headerlink" title="别名、内置函数和脚本函数的比较"></a>别名、内置函数和脚本函数的比较</h3><pre><code>#alias cd = &apos;ll&apos; #新建一个别名叫cd,但实际指向/bin/ls的别名
+
+#cp /bin/hostname /usr/local/sbin/cd #在PATH第一个目录里放入一个cd命令，实际代表的是hostname命令
+
+#cd    #执行CD命令，首先找到的是别名cd
+
+#unalias cd  #删除别名cd ，再执行的是系统内置命令
+
+#cd /test   #内置命令，进入目录test
+
+#/usr/local/sbin/cd   #脚本函数，实际上执行的是内置命令：hostname
+</code></pre><p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170321194241111-960601888.png" alt=""></p>
+<p>优先顺序总结：</p>
+<pre><code>1、别名
+2、内置命令
+3、脚本函数
+</code></pre><h3 id="别名、复合命令和函数的比较。"><a href="#别名、复合命令和函数的比较。" class="headerlink" title="别名、复合命令和函数的比较。"></a>别名、复合命令和函数的比较。</h3><pre><code>#alias for=&apos;ll&apos;   #定义一个别名
+
+#function for(){ echo &apos;my name is yue!&apos;； }#定义一个函数
+
+#for    #这里使用的是别名。
+
+# for((i=1;i&lt;3;i++));do echo $i;done #执行的是复合函数
+
+#function cd(){ echo &apos;my name is yue!&apos; }#定义一个函数
+
+#cd   #执行的是函数的cd
+</code></pre><p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170321194248268-1346213426.png" alt=""></p>
+<p>优先顺序总结：</p>
+<pre><code>1、别名。
+2、复合命令。
+3、函数。
+4、内置命令
+</code></pre><p>命令优先顺序总结：</p>
+<pre><code>1.别名
+
+2.复合命令
+
+3.函数
+
+4.内置命令
+
+5.脚本命令
+</code></pre><h1 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h1><pre><code>~    cd ~  #跳转到家目录
+！   取反 ， 运行历史命令。
+#    注释
+$    $?表示上一条命令是否执行成功。0成功 非0不成功，将变量的值取出来
+%    取余。
+^    取反
+&amp;    命令 &amp; 后台运行。  &amp;&amp;与运算  pwd &amp;&amp; cd  如果pwd执行成功则执行cd，如果pwd失败，则不执行cd
+*    乘法 。ls *代表所有。
+-    减号，连接符
+_    字符连接符
++    加法运算
+=    赋值， == 判断
+|    管道符号，||逻辑或  pwd || cd  pwd执行成功，则cd不执行，pwd失败则执行cd。
+{}  ｛10｝000 给10加三个0， touch {1..4}.txt  新建1-4.txt
+?    $? 显示上一条命令是否成功，只匹配一个任意字符
+&gt;    大于号， 覆盖语句，&gt;&gt; 追加语句
+&lt;    小于号
+\    转义符  \$x  输出$x
+[]   取出括号中的一个值。
+;    分割命令
+：   表示真。
+/    路径拼接符
+&quot;&quot;   软引用
+&apos;&apos;   硬引用，引号中的是什么就输出什么
 </code></pre>
       
     </div>
@@ -502,12 +480,6 @@ chmod u=x dir
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/作业，linux/" rel="tag"># 作业，linux</a>
-          
-        </div>
-      
 
       
         
@@ -517,8 +489,8 @@ chmod u=x dir
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/16/作业/linux打包压缩、磁盘分区作业/" rel="next" title="linux打包压缩，磁盘分区作业">
-                <i class="fa fa-chevron-left"></i> linux打包压缩，磁盘分区作业
+              <a href="/2017/03/21/linux学习基础/网络配置/" rel="next" title="网络配置、ssh、scp">
+                <i class="fa fa-chevron-left"></i> 网络配置、ssh、scp
               </a>
             
           </div>
@@ -526,10 +498,6 @@ chmod u=x dir
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/16/linux学习基础/linux系统主要文件的作用/" rel="prev" title="linux系统下各文件夹的意义">
-                linux系统下各文件夹的意义 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -658,7 +626,7 @@ chmod u=x dir
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#作业一："><span class="nav-number">1.</span> <span class="nav-text">作业一：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作业二："><span class="nav-number">2.</span> <span class="nav-text">作业二：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作业三："><span class="nav-number">3.</span> <span class="nav-text">作业三：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作业四："><span class="nav-number">4.</span> <span class="nav-text">作业四：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#命令及优先级"><span class="nav-number">1.</span> <span class="nav-text">命令及优先级</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#验证别名、内部命令和脚本可执行命令优先级"><span class="nav-number">1.1.</span> <span class="nav-text">验证别名、内部命令和脚本可执行命令优先级</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#别名、内置函数和脚本函数的比较"><span class="nav-number">1.1.1.</span> <span class="nav-text">别名、内置函数和脚本函数的比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#别名、复合命令和函数的比较。"><span class="nav-number">1.1.2.</span> <span class="nav-text">别名、复合命令和函数的比较。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#元字符"><span class="nav-number">2.</span> <span class="nav-text">元字符</span></a></li></ol></div>
             
 
           </div>
