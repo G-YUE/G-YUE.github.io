@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="python小例子," />
 
 
 
@@ -87,18 +87,40 @@
 
 
 
-<meta name="description" content="首先看下各种存储设备在Linux中的文件名：">
+<meta name="description" content="作业一：猜年龄，可以让用户最多猜三次。age = 25
+a = 3
+for i in range(1,4):
+    print(&amp;quot;You have %d changes!&amp;quot; % a)
+    guess = int(input(&amp;quot;please input your guess:&amp;quot;))
+    if guess &amp;gt; age:
+        print">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux硬盘分区、格式化及系统的管理">
-<meta property="og:url" content="http://yoursite.com/2017/03/16/linux学习基础/Linux硬盘分区、格式化及系统管理/index.html">
+<meta property="og:title" content="跃">
+<meta property="og:url" content="http://yoursite.com/2017/03/27/python小例子/猜数字、模拟登录/index.html">
 <meta property="og:site_name" content="跃">
-<meta property="og:description" content="首先看下各种存储设备在Linux中的文件名：">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/1036857/201611/1036857-20161109124853764-690268125.png">
-<meta property="og:updated_time" content="2017-03-16T10:40:16.554Z">
+<meta property="og:description" content="作业一：猜年龄，可以让用户最多猜三次。age = 25
+a = 3
+for i in range(1,4):
+    print(&amp;quot;You have %d changes!&amp;quot; % a)
+    guess = int(input(&amp;quot;please input your guess:&amp;quot;))
+    if guess &amp;gt; age:
+        print">
+<meta property="og:image" content="http://i.imgur.com/sMn9yMV.png">
+<meta property="og:image" content="http://i.imgur.com/UN1E2kP.png">
+<meta property="og:image" content="http://i.imgur.com/MBaJTky.png">
+<meta property="og:image" content="http://i.imgur.com/ecaaEka.png">
+<meta property="og:image" content="http://i.imgur.com/NyQ2yII.png">
+<meta property="og:updated_time" content="2017-03-28T07:55:33.816Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux硬盘分区、格式化及系统的管理">
-<meta name="twitter:description" content="首先看下各种存储设备在Linux中的文件名：">
-<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/1036857/201611/1036857-20161109124853764-690268125.png">
+<meta name="twitter:title" content="跃">
+<meta name="twitter:description" content="作业一：猜年龄，可以让用户最多猜三次。age = 25
+a = 3
+for i in range(1,4):
+    print(&amp;quot;You have %d changes!&amp;quot; % a)
+    guess = int(input(&amp;quot;please input your guess:&amp;quot;))
+    if guess &amp;gt; age:
+        print">
+<meta name="twitter:image" content="http://i.imgur.com/sMn9yMV.png">
 
 
 
@@ -126,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/16/linux学习基础/Linux硬盘分区、格式化及系统管理/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/27/python小例子/猜数字、模拟登录/"/>
 
 
 
 
 
-  <title> linux硬盘分区、格式化及系统的管理 | 跃 </title>
+  <title>  | 跃 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -271,7 +293,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/16/linux学习基础/Linux硬盘分区、格式化及系统管理/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/27/python小例子/猜数字、模拟登录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="G-YUE">
@@ -292,7 +314,7 @@
             
             
               
-                linux硬盘分区、格式化及系统的管理
+                
               
             
           </h1>
@@ -307,8 +329,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-16T15:26:39+08:00">
-                2017-03-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-27T17:41:09+08:00">
+                2017-03-27
               </time>
             
 
@@ -330,8 +352,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux学习基础/" itemprop="url" rel="index">
-                    <span itemprop="name">linux学习基础</span>
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
                   </a>
                 </span>
 
@@ -365,58 +387,114 @@
       
 
       
-        <p>首先看下各种存储设备在Linux中的文件名：</p>
-<p><img src="http://images2015.cnblogs.com/blog/1036857/201611/1036857-20161109124853764-690268125.png" alt=""></p>
-<a id="more"></a>
-<h3 id="为什么进行分区？"><a href="#为什么进行分区？" class="headerlink" title="为什么进行分区？"></a>为什么进行分区？</h3><ul>
-<li>更容易管理和控制系统。</li>
-<li>系统效率更高。</li>
-<li>可以限制用户使用硬盘的空间大小。</li>
-<li>更容易备份和回复。</li>
-</ul>
-<h2 id="Linux系统中硬盘的分区"><a href="#Linux系统中硬盘的分区" class="headerlink" title="Linux系统中硬盘的分区"></a>Linux系统中硬盘的分区</h2><p>硬盘的分区可以分为：主分区、扩展分区和逻辑分区。</p>
-<p>一块硬盘上最多可以划分出4个主分区。</p>
-<pre><code>df: 查看磁盘分区，大小，挂载等内容。
-参数：
-    H: 以1024模式显示    
-    i:显示inode信息，有inode码之类的。
-</code></pre><p>下面来用fdisk来创建磁盘分区：</p>
-<h1 id="fdisk：创建磁盘分区。"><a href="#fdisk：创建磁盘分区。" class="headerlink" title="fdisk：创建磁盘分区。"></a>fdisk：创建磁盘分区。</h1><p>首先，fdisk 要被分区的磁盘名。</p>
-<p>fdisk命令列表中常用的命令。<br>    d: 删除一个（已经存在的）分区，delet</p>
-<pre><code>l: 列出（已经存在的）分区的类型，list
+        <h1 id="作业一："><a href="#作业一：" class="headerlink" title="作业一："></a>作业一：</h1><h2 id="猜年龄，可以让用户最多猜三次。"><a href="#猜年龄，可以让用户最多猜三次。" class="headerlink" title="猜年龄，可以让用户最多猜三次。"></a>猜年龄，可以让用户最多猜三次。</h2><pre><code>age = 25
+a = 3
+for i in range(1,4):
+    print(&quot;You have %d changes!&quot; % a)
+    guess = int(input(&quot;please input your guess:&quot;))
+    if guess &gt; age:
+        print(&quot;Try smaller....&quot;)
+    elif guess &lt; age:
+        print(&quot;Try bigger....&quot;)
+    else:
+        print(&quot;You guess it!&quot;)
+        break
+    a = a - 1
+</code></pre><p><img src="http://i.imgur.com/sMn9yMV.png" alt=""></p>
+<p><img src="http://i.imgur.com/UN1E2kP.png" alt=""></p>
+<h1 id="作业二："><a href="#作业二：" class="headerlink" title="作业二："></a>作业二：</h1><h2 id="猜年龄，每隔三次，询问用户是否继续。y继续，n退出。"><a href="#猜年龄，每隔三次，询问用户是否继续。y继续，n退出。" class="headerlink" title="猜年龄，每隔三次，询问用户是否继续。y继续，n退出。"></a>猜年龄，每隔三次，询问用户是否继续。y继续，n退出。</h2><pre><code>age = 25
+continue1 = &quot;y&quot;
+time = 1
+time1 = 0
+while True :
+    if continue1 == &quot;n&quot;:
+        break
+    elif continue1 == &quot;y&quot;:
+        if time % 3 !=0:
+            guess = int(input(&quot;please input your guess:&quot;))
+            if guess &gt; age:
+                print(&quot;Try smaller....&quot;)
+            elif guess &lt; age:
+                print(&quot;Try bigger....&quot;)
+               else:
+                print(&quot;You guess it!&quot;)
+                break
+            time = time1 + 1
+            time1 = time1 + 1
+    else:
+        while 1:
+            con = input(&quot;Do you want continue? [y/n]:&quot;)
+            if con == &quot;y&quot;:
+                continue1 = &quot;y&quot;
+                time = 1
+                time1 = 0
+                break
+            elif con == &quot;n&quot;:
+                continue1 = &quot;n&quot;
+                break
+            else:
+                print(&quot;Input error,please input the new![y or n]&quot;)
+</code></pre><p><img src="http://i.imgur.com/MBaJTky.png" alt=""></p>
+<p><img src="http://i.imgur.com/ecaaEka.png" alt=""></p>
+<p><img src="http://i.imgur.com/NyQ2yII.png" alt=""></p>
+<h1 id="作业三："><a href="#作业三：" class="headerlink" title="作业三："></a>作业三：</h1><h2 id="编写登陆接口："><a href="#编写登陆接口：" class="headerlink" title="编写登陆接口："></a>编写登陆接口：</h2><pre><code>输入用户密码
+认证成功显示欢迎信息
+输错三次后锁定
 
-m： 列出fdisk中使用的所有命令。
 
-n： 添加一个新的分区，new。
 
-p： 列出分区表的内容，print。
 
-q： 推出fdisk，但是不会存储所做的变化，quit。
+def black_use(name):  #从黑名单中匹配用户名。
+    black = open(&quot;blacklist.txt&quot;, &quot;r+&quot;)
+    b1 = black.readline().strip()
+    while b1 != &quot;&quot;:
+        if name == b1:
+            print(&quot;The name is disabled!&quot;)
+            global a,used1,used
+            a = a - 1
+            used1 = False
+            used = None
+            black.seek(0,0)
+            break
+        else:
+            b1 = black.readline().strip()
 
-t： 改变分区系统的id，title。
+def  enter(name,passd): #从可用用户单中匹配用户名和密码。
+    global use1,used
+    use = open(&quot;used.txt&quot;, &quot;r&quot;)
+    name_r = use.readline().strip()
+    passd_r = use.readline().strip()
+    while name_r != &quot;&quot;:
+        if name == name_r and passd == passd_r:
+            used = True
+            break
+        else:
+            name_r = use.readline().strip()
+            passd_r = use.readline().strip()
 
-w： 推出fdisk并储存所做的变化，write
-</code></pre><p>创建完分区还不能立刻是用，需要对分区进行格式化。</p>
-<h1 id="mkfs：创建文件系统，格式化分区。"><a href="#mkfs：创建文件系统，格式化分区。" class="headerlink" title="mkfs：创建文件系统，格式化分区。"></a>mkfs：创建文件系统，格式化分区。</h1><p>首先了解下常用的文件系统类型。</p>
-<pre><code>ext2：Linux系统中标准的文件系统
-ext3：一种日志式文件系统
-ext4：一种针对ext3系统的扩展日志式文件系统
-lvm：逻辑盘卷管理 
-iso9660：目前唯一通用的光盘文件系统 
-XFS： 一种高性能的日志文件系统
-</code></pre><p>例如：要将/dev/sdb1 格式化为xfs文件系统。</p>
-<pre><code>mkfs.xfs /dev/sdb1
-</code></pre><h1 id="mount：挂载。"><a href="#mount：挂载。" class="headerlink" title="mount：挂载。"></a>mount：挂载。</h1><p>挂载：指将一个设备挂机到一个已存在的目录上。</p>
-<p>例如：将/dev/sdb1 分区挂载到/wg目录上。</p>
-<pre><code>mount /dev/sdb1 /wg
-</code></pre><p>卸载：将目录上的挂载卸载掉。</p>
-<p>例如：卸载/wg上的文件系统。</p>
-<pre><code>umount /wg    
-</code></pre><h1 id="软链接和硬链接。"><a href="#软链接和硬链接。" class="headerlink" title="软链接和硬链接。"></a>软链接和硬链接。</h1><p>软链接：ln -s 源文件路径  快捷方式所在路径</p>
-<p>快捷方式指向的是源文件的文件名，有自己的innode。删除源文件，快捷方式失效。可以跨分区连接。</p>
-<p>硬链接：ln 源文件路径  快捷方式所在路径</p>
-<p>快捷方式指向的是源文件的innode号。删除源文件，快捷方式不受影响。不可以跨分区链接。</p>
-
+a = 3
+for i in range(1,4):
+    used1 = True  #True表示没有在黑名单中找到用户。False表示在黑名单中找到用户。
+    used = False  #True表示用户登录成功，False表示登录失败，用户名和密码对不上。
+    print(&quot;You have %s chances!&quot; % a)
+    name = input(&quot;Please input your name:&quot;)
+    passd = input(&quot;Please input your password:&quot;)
+    black_use(name)
+    if used1 == True :
+        enter(name,passd)
+    if used == False:
+        print(&quot;The name or password is wrong!&quot;)
+        a = a - 1
+    elif used == True:
+    print(&quot;Welcome,%s&quot; % name)
+    break
+else:
+    pass
+if a ==0 and used1 == False:  #如果次数用完，并且用户名不在黑名单中，则加入到黑名单中。
+    black = open(&quot;blacklist.txt&quot;, &quot;a+&quot;)
+    black.write(&quot;\n%s&quot; % name)
+    black.close()
+</code></pre>
       
     </div>
 
@@ -443,6 +521,12 @@ XFS： 一种高性能的日志文件系统
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/python小例子/" rel="tag"># python小例子</a>
+          
+        </div>
+      
 
       
         
@@ -452,8 +536,8 @@ XFS： 一种高性能的日志文件系统
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/16/linux学习基础/VI和VIM编辑器/" rel="next" title="VI和VIM编辑器">
-                <i class="fa fa-chevron-left"></i> VI和VIM编辑器
+              <a href="/2017/03/21/linux学习基础/shell/" rel="next" title="shell">
+                <i class="fa fa-chevron-left"></i> shell
               </a>
             
           </div>
@@ -462,8 +546,8 @@ XFS： 一种高性能的日志文件系统
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/16/作业/linux打包压缩、磁盘分区作业/" rel="prev" title="linux打包压缩，磁盘分区作业">
-                linux打包压缩，磁盘分区作业 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/28/python小例子/模拟超市购物/" rel="prev" title="模拟购物车">
+                模拟购物车 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -593,7 +677,7 @@ XFS： 一种高性能的日志文件系统
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么进行分区？"><span class="nav-number">1.</span> <span class="nav-text">为什么进行分区？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux系统中硬盘的分区"><span class="nav-number"></span> <span class="nav-text">Linux系统中硬盘的分区</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#fdisk：创建磁盘分区。"><span class="nav-number"></span> <span class="nav-text">fdisk：创建磁盘分区。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mkfs：创建文件系统，格式化分区。"><span class="nav-number"></span> <span class="nav-text">mkfs：创建文件系统，格式化分区。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mount：挂载。"><span class="nav-number"></span> <span class="nav-text">mount：挂载。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#软链接和硬链接。"><span class="nav-number"></span> <span class="nav-text">软链接和硬链接。</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#作业一："><span class="nav-number">1.</span> <span class="nav-text">作业一：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#猜年龄，可以让用户最多猜三次。"><span class="nav-number">1.1.</span> <span class="nav-text">猜年龄，可以让用户最多猜三次。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作业二："><span class="nav-number">2.</span> <span class="nav-text">作业二：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#猜年龄，每隔三次，询问用户是否继续。y继续，n退出。"><span class="nav-number">2.1.</span> <span class="nav-text">猜年龄，每隔三次，询问用户是否继续。y继续，n退出。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作业三："><span class="nav-number">3.</span> <span class="nav-text">作业三：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#编写登陆接口："><span class="nav-number">3.1.</span> <span class="nav-text">编写登陆接口：</span></a></li></ol></li></ol></div>
             
 
           </div>

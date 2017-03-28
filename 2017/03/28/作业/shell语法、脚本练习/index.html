@@ -87,18 +87,34 @@
 
 
 
-<meta name="description" content="首先看下各种存储设备在Linux中的文件名：">
+<meta name="description" content="作业一：awk文本处理打印uid在30~40范围内的用户名。
+awk -F: &amp;apos;$3&amp;gt;=30 &amp;amp;&amp;amp; $3&amp;lt;=40{print $1}&amp;apos; passwd">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux硬盘分区、格式化及系统的管理">
-<meta property="og:url" content="http://yoursite.com/2017/03/16/linux学习基础/Linux硬盘分区、格式化及系统管理/index.html">
+<meta property="og:title" content="shell脚本练习">
+<meta property="og:url" content="http://yoursite.com/2017/03/28/作业/shell语法、脚本练习/index.html">
 <meta property="og:site_name" content="跃">
-<meta property="og:description" content="首先看下各种存储设备在Linux中的文件名：">
-<meta property="og:image" content="http://images2015.cnblogs.com/blog/1036857/201611/1036857-20161109124853764-690268125.png">
-<meta property="og:updated_time" content="2017-03-16T10:40:16.554Z">
+<meta property="og:description" content="作业一：awk文本处理打印uid在30~40范围内的用户名。
+awk -F: &amp;apos;$3&amp;gt;=30 &amp;amp;&amp;amp; $3&amp;lt;=40{print $1}&amp;apos; passwd">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201613846-1631624199.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201619424-2114886978.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201625299-1988071092.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201630846-1269200836.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201636486-285622384.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201642424-529153577.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201647674-78970522.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201718830-1056824645.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201830846-1447164436.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201840471-264707338.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201855658-766481412.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201918893-1557259870.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201931799-889170384.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323202558002-535662533.png">
+<meta property="og:updated_time" content="2017-03-28T07:58:43.875Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux硬盘分区、格式化及系统的管理">
-<meta name="twitter:description" content="首先看下各种存储设备在Linux中的文件名：">
-<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/1036857/201611/1036857-20161109124853764-690268125.png">
+<meta name="twitter:title" content="shell脚本练习">
+<meta name="twitter:description" content="作业一：awk文本处理打印uid在30~40范围内的用户名。
+awk -F: &amp;apos;$3&amp;gt;=30 &amp;amp;&amp;amp; $3&amp;lt;=40{print $1}&amp;apos; passwd">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201613846-1631624199.png">
 
 
 
@@ -126,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/16/linux学习基础/Linux硬盘分区、格式化及系统管理/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/28/作业/shell语法、脚本练习/"/>
 
 
 
 
 
-  <title> linux硬盘分区、格式化及系统的管理 | 跃 </title>
+  <title> shell脚本练习 | 跃 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -271,7 +287,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/16/linux学习基础/Linux硬盘分区、格式化及系统管理/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/28/作业/shell语法、脚本练习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="G-YUE">
@@ -292,7 +308,7 @@
             
             
               
-                linux硬盘分区、格式化及系统的管理
+                shell脚本练习
               
             
           </h1>
@@ -307,8 +323,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-16T15:26:39+08:00">
-                2017-03-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-28T15:58:50+08:00">
+                2017-03-28
               </time>
             
 
@@ -330,8 +346,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux学习基础/" itemprop="url" rel="index">
-                    <span itemprop="name">linux学习基础</span>
+                  <a href="/categories/linux作业/" itemprop="url" rel="index">
+                    <span itemprop="name">linux作业</span>
                   </a>
                 </span>
 
@@ -365,57 +381,75 @@
       
 
       
-        <p>首先看下各种存储设备在Linux中的文件名：</p>
-<p><img src="http://images2015.cnblogs.com/blog/1036857/201611/1036857-20161109124853764-690268125.png" alt=""></p>
-<a id="more"></a>
-<h3 id="为什么进行分区？"><a href="#为什么进行分区？" class="headerlink" title="为什么进行分区？"></a>为什么进行分区？</h3><ul>
-<li>更容易管理和控制系统。</li>
-<li>系统效率更高。</li>
-<li>可以限制用户使用硬盘的空间大小。</li>
-<li>更容易备份和回复。</li>
-</ul>
-<h2 id="Linux系统中硬盘的分区"><a href="#Linux系统中硬盘的分区" class="headerlink" title="Linux系统中硬盘的分区"></a>Linux系统中硬盘的分区</h2><p>硬盘的分区可以分为：主分区、扩展分区和逻辑分区。</p>
-<p>一块硬盘上最多可以划分出4个主分区。</p>
-<pre><code>df: 查看磁盘分区，大小，挂载等内容。
-参数：
-    H: 以1024模式显示    
-    i:显示inode信息，有inode码之类的。
-</code></pre><p>下面来用fdisk来创建磁盘分区：</p>
-<h1 id="fdisk：创建磁盘分区。"><a href="#fdisk：创建磁盘分区。" class="headerlink" title="fdisk：创建磁盘分区。"></a>fdisk：创建磁盘分区。</h1><p>首先，fdisk 要被分区的磁盘名。</p>
-<p>fdisk命令列表中常用的命令。<br>    d: 删除一个（已经存在的）分区，delet</p>
-<pre><code>l: 列出（已经存在的）分区的类型，list
+        <h1 id="作业一：awk文本处理"><a href="#作业一：awk文本处理" class="headerlink" title="作业一：awk文本处理"></a>作业一：awk文本处理</h1><p>打印uid在30~40范围内的用户名。</p>
+<pre><code>awk -F: &apos;$3&gt;=30 &amp;&amp; $3&lt;=40{print $1}&apos; passwd
+</code></pre><a id="more"></a>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201613846-1631624199.png" alt=""></p>
+<p>打印第5-10行的行号和用户名</p>
+<pre><code>awk -F: &apos;NR&lt;=10 &amp;&amp; NR&gt;=5{print NR,$1}&apos; passwd
+</code></pre><p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201619424-2114886978.png" alt=""></p>
+<p>打印奇数行</p>
+<pre><code>awk -F: &apos;NR%2==1{print NR,$0}&apos; passwd
+</code></pre><p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201625299-1988071092.png" alt=""></p>
+<p>打印偶数行</p>
+<pre><code>awk -F: &apos;NR%2==0{print NR,$0}&apos; passwd
+</code></pre><p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201630846-1269200836.png" alt=""></p>
+<p>打印字段数大于5的行</p>
+<pre><code>awk -F: &apos;NF&gt;5{print NF,$0}&apos; passwd
+</code></pre><p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201636486-285622384.png" alt=""></p>
+<p>打印UID不等于GID的用户名</p>
+<pre><code>awk -F: &apos;$3 != $4{print $0}&apos; passwd
+</code></pre><p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201642424-529153577.png" alt=""></p>
+<p>打印没有指定shell的用户</p>
+<pre><code>awk -F: &apos;$NF != &quot; &quot;{print $0}&apos; passwd
+</code></pre><p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201647674-78970522.png" alt=""></p>
+<h1 id="作业二：shell脚本编写"><a href="#作业二：shell脚本编写" class="headerlink" title="作业二：shell脚本编写"></a>作业二：shell脚本编写</h1><h2 id="自动部署、初始配置、并启动nginx反向代理服务"><a href="#自动部署、初始配置、并启动nginx反向代理服务" class="headerlink" title="自动部署、初始配置、并启动nginx反向代理服务"></a>自动部署、初始配置、并启动nginx反向代理服务</h2><pre><code>#!/bin/bash
 
-m： 列出fdisk中使用的所有命令。
+echo &apos;开始安装........&apos;
+yum install epel-release -y
+yum install nginx -y
+echo &apos;更改配置...........&apos;
+a=&quot;/etc/nginx/nginx.conf &quot;
+echo &apos;添加三台代理服务器IP地址.......&apos;
+sed -i &quot;17a upstream app {&quot; $a
+read -p &quot;输入第一台服务器IP地址:   &quot; IP1
+sed -i &quot;18a server $IP1;}&quot; $a
 
-n： 添加一个新的分区，new。
+read -p &quot;输入第二台服务器IP地址:   &quot; IP2
+sed -i &quot;18a server $IP2;&quot; $a
 
-p： 列出分区表的内容，print。
+read -p &quot;输入第三台服务器IP地址:   &quot; IP3
+sed -i &quot;18a server $IP3;&quot; $a
 
-q： 推出fdisk，但是不会存储所做的变化，quit。
-
-t： 改变分区系统的id，title。
-
-w： 推出fdisk并储存所做的变化，write
-</code></pre><p>创建完分区还不能立刻是用，需要对分区进行格式化。</p>
-<h1 id="mkfs：创建文件系统，格式化分区。"><a href="#mkfs：创建文件系统，格式化分区。" class="headerlink" title="mkfs：创建文件系统，格式化分区。"></a>mkfs：创建文件系统，格式化分区。</h1><p>首先了解下常用的文件系统类型。</p>
-<pre><code>ext2：Linux系统中标准的文件系统
-ext3：一种日志式文件系统
-ext4：一种针对ext3系统的扩展日志式文件系统
-lvm：逻辑盘卷管理 
-iso9660：目前唯一通用的光盘文件系统 
-XFS： 一种高性能的日志文件系统
-</code></pre><p>例如：要将/dev/sdb1 格式化为xfs文件系统。</p>
-<pre><code>mkfs.xfs /dev/sdb1
-</code></pre><h1 id="mount：挂载。"><a href="#mount：挂载。" class="headerlink" title="mount：挂载。"></a>mount：挂载。</h1><p>挂载：指将一个设备挂机到一个已存在的目录上。</p>
-<p>例如：将/dev/sdb1 分区挂载到/wg目录上。</p>
-<pre><code>mount /dev/sdb1 /wg
-</code></pre><p>卸载：将目录上的挂载卸载掉。</p>
-<p>例如：卸载/wg上的文件系统。</p>
-<pre><code>umount /wg    
-</code></pre><h1 id="软链接和硬链接。"><a href="#软链接和硬链接。" class="headerlink" title="软链接和硬链接。"></a>软链接和硬链接。</h1><p>软链接：ln -s 源文件路径  快捷方式所在路径</p>
-<p>快捷方式指向的是源文件的文件名，有自己的innode。删除源文件，快捷方式失效。可以跨分区连接。</p>
-<p>硬链接：ln 源文件路径  快捷方式所在路径</p>
-<p>快捷方式指向的是源文件的innode号。删除源文件，快捷方式不受影响。不可以跨分区链接。</p>
+c=&quot;proxy_pass http://app;&quot;
+sed -i &quot;51a $c&quot; $a
+echo &quot;配置完成，启动服务............&quot;
+systemctl start nginx
+</code></pre><p>后期可以使用for循环来简化流程。</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201718830-1056824645.png" alt=""></p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201830846-1447164436.png" alt=""></p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201840471-264707338.png" alt=""></p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201855658-766481412.png" alt=""></p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201918893-1557259870.png" alt=""></p>
+<h2 id="自动部署、初始配置、并启动三台web"><a href="#自动部署、初始配置、并启动三台web" class="headerlink" title="自动部署、初始配置、并启动三台web"></a>自动部署、初始配置、并启动三台web</h2><pre><code>#!/bin/bash
+echo &apos;开始安装........&apos;
+yum install epel-release -y
+yum install nginx -y
+echo &apos;初始化配置.......&apos;
+echo &apos;启动服务........&apos;
+systemctl start nginx
+</code></pre><p>配置IP地址为上面设置好的。</p>
+<h2 id="监控脚本：监控每台机器的内存使用率-gt-70-则输出报警信息"><a href="#监控脚本：监控每台机器的内存使用率-gt-70-则输出报警信息" class="headerlink" title="监控脚本：监控每台机器的内存使用率&gt;70%,则输出报警信息"></a>监控脚本：监控每台机器的内存使用率&gt;70%,则输出报警信息</h2><pre><code>#!/bin/bash
+while :
+do
+a=`free |awk &apos;NR==2{print $3/$2}&apos;`
+b=`echo &quot;scale=2;$a/1&quot;|bc|sed  &quot;s/\.//&quot;`
+echo &apos;当前内存使用率：&apos;$b%
+(($b&gt;70)) &amp;&amp; echo &apos;内存使用过高！！！！！&apos;
+sleep 2
+done
+</code></pre><p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323201931799-889170384.png" alt=""></p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170323202558002-535662533.png" alt=""></p>
 
       
     </div>
@@ -452,8 +486,8 @@ XFS： 一种高性能的日志文件系统
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/16/linux学习基础/VI和VIM编辑器/" rel="next" title="VI和VIM编辑器">
-                <i class="fa fa-chevron-left"></i> VI和VIM编辑器
+              <a href="/2017/03/28/linux学习基础/正则表达式/" rel="next" title="正则表达式">
+                <i class="fa fa-chevron-left"></i> 正则表达式
               </a>
             
           </div>
@@ -462,8 +496,8 @@ XFS： 一种高性能的日志文件系统
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/16/作业/linux打包压缩、磁盘分区作业/" rel="prev" title="linux打包压缩，磁盘分区作业">
-                linux打包压缩，磁盘分区作业 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/28/作业/文本编辑器、正则表达式。/" rel="prev" title="正则表达式和文本编辑器">
+                正则表达式和文本编辑器 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -593,7 +627,7 @@ XFS： 一种高性能的日志文件系统
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么进行分区？"><span class="nav-number">1.</span> <span class="nav-text">为什么进行分区？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux系统中硬盘的分区"><span class="nav-number"></span> <span class="nav-text">Linux系统中硬盘的分区</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#fdisk：创建磁盘分区。"><span class="nav-number"></span> <span class="nav-text">fdisk：创建磁盘分区。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mkfs：创建文件系统，格式化分区。"><span class="nav-number"></span> <span class="nav-text">mkfs：创建文件系统，格式化分区。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mount：挂载。"><span class="nav-number"></span> <span class="nav-text">mount：挂载。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#软链接和硬链接。"><span class="nav-number"></span> <span class="nav-text">软链接和硬链接。</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#作业一：awk文本处理"><span class="nav-number">1.</span> <span class="nav-text">作业一：awk文本处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作业二：shell脚本编写"><span class="nav-number">2.</span> <span class="nav-text">作业二：shell脚本编写</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#自动部署、初始配置、并启动nginx反向代理服务"><span class="nav-number">2.1.</span> <span class="nav-text">自动部署、初始配置、并启动nginx反向代理服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动部署、初始配置、并启动三台web"><span class="nav-number">2.2.</span> <span class="nav-text">自动部署、初始配置、并启动三台web</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#监控脚本：监控每台机器的内存使用率-gt-70-则输出报警信息"><span class="nav-number">2.3.</span> <span class="nav-text">监控脚本：监控每台机器的内存使用率>70%,则输出报警信息</span></a></li></ol></li></ol></div>
             
 
           </div>
