@@ -1,0 +1,965 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="1.执行 Python 脚本的两种方式
+解释器:python 脚本名.py
+直接运行：linux下给全部权限，然后再终端中输入./脚本名.py
+2.简述位、字节的关系
+8位=1字节">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python基础习题集">
+<meta property="og:url" content="http://yoursite.com/2017/04/05/python小例子/基础习题集/index.html">
+<meta property="og:site_name" content="跃">
+<meta property="og:description" content="1.执行 Python 脚本的两种方式
+解释器:python 脚本名.py
+直接运行：linux下给全部权限，然后再终端中输入./脚本名.py
+2.简述位、字节的关系
+8位=1字节">
+<meta property="og:updated_time" content="2017-03-31T11:00:11.652Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python基础习题集">
+<meta name="twitter:description" content="1.执行 Python 脚本的两种方式
+解释器:python 脚本名.py
+直接运行：linux下给全部权限，然后再终端中输入./脚本名.py
+2.简述位、字节的关系
+8位=1字节">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/05/python小例子/基础习题集/"/>
+
+
+
+
+
+  <title> python基础习题集 | 跃 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">跃</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">记录学习的技能和遇到的问题</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/05/python小例子/基础习题集/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="G-YUE">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="跃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                python基础习题集
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-05T20:02:05+08:00">
+                2017-04-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>1.执行 Python 脚本的两种方式</p>
+<pre><code>解释器:python 脚本名.py
+直接运行：linux下给全部权限，然后再终端中输入./脚本名.py
+</code></pre><p>2.简述位、字节的关系</p>
+<pre><code>8位=1字节
+</code></pre><a id="more"></a>
+<p>3.简述 ascii、unicode、utf-­‐8、gbk 的关系</p>
+<pre><code>Ascii是最早的一套编码，后来国人扩展了Ascii表，制出了CB2312编码表，后来又扩展到了GBK编码表。后来又有了GB18030。后来国际化标准组织为了规范化编码标准，研究出了unicode编码。经过一系列进化，发展到了可变长的utf-8编码
+</code></pre><p>4.请写出 “李杰” 分别用 utf-­‐8 和 gbk 编码所占的位数</p>
+<pre><code>Utf-8:6位
+gbk：4位
+</code></pre><p>5.Pyhton    单行注释和多行注释分别用什么？</p>
+<pre><code>单行注释：#注释的内容
+多行注释：&apos;&apos;&apos;注释的内容&apos;&apos;&apos;
+</code></pre><p>6.声明变量注意事项有那些？</p>
+<pre><code>1、不能以数字开头
+2、只能是字母、数字或下划线的任意组合，但不能有特殊字符
+3、关键字通常不能声明为变量
+</code></pre><p>7.如何查看变量在内存中的地址?</p>
+<pre><code>Id(变量名)
+</code></pre><p>8.执行 Python 程序时，自动生成的 .pyc 文件的作用是什么？</p>
+<pre><code>pyc 是由py文件经过编译后二进制文件，使用pyc的加载速度快，而且跨平台。
+</code></pre><p>9、写代码<br>a.实现用户输入用户名和密码，当用户名为 seven 且 密码为 123 时，显示登陆成功，否则登陆失败！</p>
+<pre><code>Name =input(“Please input your name !”)
+Passwd = int(input(“Please input you password ！”))
+if Name == “seven” and Passwd ==123:
+    print(“Welcome!”)
+else:
+    print(“The name or password is wrong!”)
+</code></pre><p>b.实现用户输入用户名和密码，当用户名为 seven 且 密码为 123 时，显示登陆成功，否则登陆失败，失败时允许重复输入三次</p>
+<pre><code>for i in range(3):
+    Name =input(“Please input your name !”)
+    Passwd = int(input(“Please input you password ！”))
+    if Name == “seven” and Passwd ==123:
+        print(“Welcome!”)
+        break
+    else:
+        print(“Please input agin!”)
+</code></pre><p>c.实现用户输入用户名和密码，当用户名为 seven 或 alex 且 密码为 123 时，显示登陆成功，否则登陆失败，失败时允许重复输入三次</p>
+<pre><code>for i in range(4):
+    Name =input(“Please input your name !”)
+    Passwd = int(input(“Please input you password ！”))
+    if (Name == “seven” or  Name == “alex”)and Passwd ==123:
+        Print(“Welcome!”)
+        break
+    else:
+        print(“Please input agin!You have %s choice！”% (3-i))
+</code></pre><p>10、写代码<br>a.   使用 while 循环实现输出 2 -­‐  3 + 4 -­‐  5 + 6 … + 100   的和</p>
+<pre><code>i=2
+t=0
+While i&lt;=100:
+    if i%2 == 1:
+        t -= i
+            else:
+                t += i
+                   i += 1
+        print(t)
+</code></pre><p>b.   使用 for 循环和 range 实现输出 1 -­‐  2 + 3 -­‐  4 + 5 -­‐  6 … + 99   的和</p>
+<pre><code>t=0
+for i in range(1,100):
+    if i%2 == 1:
+        t += i
+    else:
+        t -= i
+
+print(t)
+</code></pre><p>c. 使用 while 循环实现输出 1，2，3，4，5，    7，8，9，    11，12 </p>
+<pre><code>i=1
+while i &lt;= 12:
+    if i == 6 or i ==10:
+        pass
+    else:
+        print(i)
+    i += 1
+</code></pre><p>d. 使用 while 循环实现输出 1-­‐100 内的所有奇数</p>
+<pre><code>i=1
+while i &lt;= 100:
+    if i%2 == 1:
+        print(i)
+    i += 1
+</code></pre><p>e.  使用 while 循环实现输出 1-­‐100  内的所有偶数</p>
+<pre><code>i=1
+while i &lt;= 100:
+        if i%2 == 0:
+                print(i)
+        i += 1
+</code></pre><p>11.分别书写数字 5，10，32，7 的二进制表示</p>
+<pre><code>5：0000 0101
+10：0000 1010
+32：0010 0000
+7： 0000 0111
+</code></pre><p>12.简述对象和  类的关系（可用比喻的手法）</p>
+<pre><code>类是抽象的，而对象，就是类的具体表现。
+类可以比作水果。而苹果，橘子，香蕉就可以看做是对象。
+</code></pre><p>13、现有如下两个变量，请简述 n1 和 n2 是什么关系？<br>n1 = 123    n2 = 123    </p>
+<pre><code>两个变量都指向同一块内存地址，存储的数据为123.
+</code></pre><p>14、现有如下两个变量，请简述 n1 和 n2 是什么关系？<br>n1 = 123456    n2 = 123456</p>
+<pre><code>两个变量指向的是两个内存地址，python的内部优化机制：-5----257，会使用同一个内存地址，当再赋值给新的变量，会重新开辟一份内存空间。
+</code></pre><p>15、现有如下两个变量，请简述 n1 和 n2 是什么关系？<br>n1 = 123456<br>n2 = n1</p>
+<pre><code>n1和n2 指向的是同一个内存地址，
+</code></pre><p>16.如有一下变量 n1 = 5，请使用 int 的提供的方法，得到该变量最少可以用多少个二进制位表示？</p>
+<pre><code>len(bin(n1)[2:])
+</code></pre><p>17.布尔值分别有什么？</p>
+<pre><code>True 和 False
+</code></pre><p>18、阅读代码，请写出执行结果 a = “alex”<br>a=”alex”<br>b = a.capitalize()<br>print(a)<br>print(b)<br>请写出输出结果：</p>
+<pre><code>alex
+Alex
+</code></pre><p>19、写代码，有如下变量，请按照要求实现每个功能<br>name=” aleX”</p>
+<p>a.移除name 变量对应的值两边的空格，并输入移除后的内容</p>
+<pre><code>print(name.strip())
+</code></pre><p>b. 判断 name 变量对应的值是否以 “al” 开头，并输出结果</p>
+<pre><code>print(name.startswith(&quot;al&quot;))
+</code></pre><p>c. 判断 name 变量对应的值是否以 “X” 结尾，并输出结果</p>
+<pre><code>print(name.endswith(&quot;x&quot;))
+</code></pre><p>d. 将 name 变量对应的值中的 “l” 替换为 “p”，并输出结果</p>
+<pre><code>print(name.replace(&quot;l&quot;,&quot;p&quot;))
+</code></pre><p>e. 将 name 变量对应的值根据 “l” 分割，并输出结果。</p>
+<pre><code>print(name.split(&quot;l&quot;))
+</code></pre><p>f. 请问，上一题 e 分割之后得到值是什么类型？</p>
+<pre><code>list 列表
+</code></pre><p>g. 将 name 变量对应的值变大写，并输出结果 </p>
+<pre><code>print(name.upper())
+</code></pre><p>h. 将 name 变量对应的值变小写，并输出结果</p>
+<pre><code>print(name.lower())
+</code></pre><p>i. 请输出 name 变量对应的值的第 2 个字符？</p>
+<pre><code>print(name[1])
+</code></pre><p>j. 请输出 name 变量对应的值的前 3 个字符？</p>
+<pre><code>print(name[:3])
+</code></pre><p>k. 请输出 name 变量对应的值的后 2 个字符？</p>
+<pre><code>print(name[-2:])
+</code></pre><p>l.请输出name 变量对应的值中“e”所在索引位置？</p>
+<pre><code>print(name.index(&quot;e&quot;))
+</code></pre><p>20、字符串是否可迭代？如可以请使用 for   循环每一个元素？</p>
+<pre><code>name = &quot;abcd&quot;
+for i in name:
+    print(i)
+</code></pre><p>21、请用代码实现：利用下划线将列表的每一个元素拼接成字符串，li ＝ [‘alex’, ‘eric’, ‘rain’]</p>
+<pre><code>for i in li:
+    print(&quot;-&quot;.join(i))
+</code></pre><p>22、写代码，有如下列表，按照要求实现每一个功能 li  ＝ [‘alex’, ‘eric’, ‘rain’]<br>a. 计算列表长度并输出</p>
+<pre><code>print(len(li))
+</code></pre><p>b. 列表中追加元素 “seven”，并输出添加后的列<br>表<br>    li.append(“seven”)<br>    print(li)</p>
+<p>c. 请在列表的第 1 个位置插入元素 “Tony”，并输出添加后的列表 </p>
+<pre><code>li.insert(0,&quot;Tony&quot;)
+print(li)
+</code></pre><p>d. 请修改列表第 2 个位置的元素为 “Kelly”，并输出修改后的列表</p>
+<pre><code>li[1]=&quot;Kelly&quot;
+print(li)
+</code></pre><p>e. 请删除列表中的元素 “eric”，并输出修改后的列表</p>
+<pre><code>li.rmove(&quot;eric&quot;)
+</code></pre><p>f. 请删除列表中的第 2 个元素，并输出删除的元素的值和删除元素后的列表</p>
+<pre><code>print(li.pop(1))
+print(li)
+</code></pre><p>g. 请删除列表中的第 3 个元素，并输出删除元素后的列表</p>
+<pre><code>print(li.pop())
+print(li)
+</code></pre><p>h. 请删除列表中的第 2 至 4 个元素，并输出删除元素后的列表</p>
+<pre><code>del li[1:]
+print(li)
+</code></pre><p>i.请将列表所有的元素反转，并输出反转后的列表</p>
+<pre><code>print(li.reverse())
+</code></pre><p>j.请使用for、len、range 输出列表的索引</p>
+<pre><code>for i in range(0,len(li)):
+    print(i,li[i])
+</code></pre><p>k. 请使用 enumerate 输出列表元素和序号（序号从 100 开始）</p>
+<pre><code>for i,j in enumerate(li,100):
+    print(i,j)
+</code></pre><p>l. 请使用 for 循环输出列表的所有元素</p>
+<pre><code>for i in li:
+    for j in j:
+        print(j)
+</code></pre><p>23、写代码，有如下列表，请按照功能要求实现每一个功能 li = [“hello”, ‘seven’, [“mon”, [“h”, “kelly”], ‘all’], 123, 446]<br>a. 请输出 “Kelly”</p>
+<pre><code>print(li[2][1][1])
+</code></pre><p>b. 请使用索引找到 ‘all’ 元素并将其修改为 “ALL”</p>
+<pre><code>li[2][2]=&quot;ALL&quot;
+</code></pre><p>24、写代码，有如下元组，按照要求实现每一个功能 tu  ＝ (‘alex’, ‘eric’, ‘rain’)<br>a. 计算元组长度并输出</p>
+<pre><code>print(len(tu))
+</code></pre><p>b. 获取元组的第 2 个元素，并输出</p>
+<pre><code>print(tu[1])
+</code></pre><p>c.获取元组的第1–‐2个元素，并输出</p>
+<pre><code>print(tu[:2])
+</code></pre><p>d.请使用for 输出元组的元素</p>
+<pre><code>for i in tu:
+    print(i)
+</code></pre><p>e. 请使用 for、len、range 输出元组的索引</p>
+<pre><code>for i in range(0,len(tu)):
+    print(i,tu(i))
+</code></pre><p>f. 请使用 enumerate 输出元祖元素和序号（序号从 10 开始）</p>
+<pre><code>for i,j in emumerate(tu,10):
+    print(i,j)
+</code></pre><p>25、有如下变量，请实现要求的功能<br>tu = (“alex”, [11, 22, {“k1”: ‘v1’, “k2”: [“age”, “name”], “k3”: (11,22,33)}, 44])<br>a. 讲述元组的特性</p>
+<pre><code>元组不可变，一旦被定义，他的值就不能在更改，如果组中包含列表和字典，这些可以改变
+</code></pre><p>b. 请问 tu 变量中的第一个元素 “alex” 是否可被修改？</p>
+<pre><code>不可以
+</code></pre><p>c. 请问 tu 变量中的”k2”对应的值是什么类型？是否可以被修改？如果可以，请在其中添加一个元素 “Seven”</p>
+<pre><code>K2对应的是列表类型，可以被修改。
+tu[1][2][&quot;k2&quot;].append(&quot;Seven&quot;)
+</code></pre><p>d. 请问 tu 变量中的”k3”对应的值是什么类型？是否可以被修改？如果可以，请在其中添加一个元素 “Seven”</p>
+<pre><code>K3对应的是元祖，不能被修改。
+</code></pre><p>26、字典<br>dic = {‘k1’: “v1”, “k2”: “v2”, “k3”: [11,22,33]}<br>a. 请循环输出所有的 key</p>
+<pre><code>for i in dic:
+    print(i)
+</code></pre><p>b.请循环输出所有的value</p>
+<pre><code>for i in dic.values()：
+    print（i）
+</code></pre><p>c.请循环输出所有的key 和value</p>
+<pre><code>for i in dic:
+    print(i,dic[i])
+</code></pre><p>d. 请在字典中添加一个键值对，”k4”:  “v4”，输出添加后的字典</p>
+<pre><code>dic[&quot;k4&quot;]=&quot;v4&quot;
+print(dic)
+</code></pre><p>e. 请在修改字典中 “k1” 对应的值为 “alex”，输出修改后的字典</p>
+<pre><code>dic[&quot;k1&quot;]=&quot;alex&quot;
+print(dic)
+</code></pre><p>f. 请在 k3 对应的值中追加一个元素 44，输出修改后的字典</p>
+<pre><code>dic[&quot;k3&quot;].append(44)
+print(dic)
+</code></pre><p>g. 请在 k3 对应的值的第 1 个位置插入个元素 18，输出修改后的字典</p>
+<pre><code>dic[&quot;k2&quot;].insert(0,18)
+print(dic)
+</code></pre><p>27、转换<br>a.  将字符串 s = “alex”  转换成列表</p>
+<pre><code>list(s)
+</code></pre><p>b. 将字符串 s = “alex”  转换成元祖</p>
+<pre><code>tuple(s)
+</code></pre><p>b. 将列表 li = [“alex”, “seven”] 转换成元组</p>
+<pre><code>tuple(li)
+</code></pre><p>c. 将元祖 tu = (‘Alex’, “seven”) 转换成列表</p>
+<pre><code>list(tu)
+</code></pre><p>d. 将列表 li = [“alex”, “seven”] 转换成字典且字典的 key 按照 10 开始向后递增</p>
+<pre><code>b=[10,11]
+print(dict(zip(b,li)))
+</code></pre><p>27、转码<br>n=”老男孩”<br>a.     将字符串转换成 utf-­‐8   编码的字节，并输出，然后将该字节再转换成 utf-­‐8   编码字符串，再输出</p>
+<pre><code>print(n.encode(&quot;utf-8&quot;))
+</code></pre><p>a. 将字符串转换成 gbk 编码的字节，并输出，然后将该字节再转换成 gbk 编码字符串，再输出</p>
+<pre><code>print(n.encode(&quot;gbk&quot;))
+</code></pre><p>28、求 1-­‐100  内的所有数的和</p>
+<pre><code>s=0
+for i in range(1,101):
+    s+=i
+print(s)
+</code></pre><p>29、元素分类<br>有如下值集合 a=[11,22,33,44,55,66,77,88,99,90]，将所有大于 66 的值保存至字典的第一个 key 中，将小于 66 的值保存至第二个 key 的值中。 即： {‘k1’: 大于 66 的所有值, ‘k2’: 小于 66 的所有值}</p>
+<pre><code>mix66=[]
+min66=[]
+for i in a:
+    if i &gt; 66:
+        mix66.append(i)
+    elif i &lt; 66:
+        min66.append(i)
+
+cont={}
+cont[&quot;first&quot;]=mix66
+cont[&quot;second&quot;]=min66
+print(cont)
+</code></pre><p>30、购物车<br>功能要求：<br>要求用户输入总资产，例如：2000 显示商品列表，让用户根据序号选择商品，加入购物车 购买，如果商品总额大于总资产，提示账户余额不足，否则，购买成功。<br>goods = [<br>{“name”: “电脑”, “price”: 1999},<br>{“name”: “鼠标”, “price”: 10},<br>{“name”: “游艇”, “price”: 20},<br>{“name”: “美女”, “price”: 998},<br>]</p>
+<pre><code>salary = int(input(&quot;Please input your money!&quot;).strip())
+print(&quot;{0:^4}{1:^12}{2:^10}&quot;.format(&quot;ID&quot;,&quot;commodity&quot;,&quot;Price&quot;))
+d=1
+for a in goods:
+    j=list(a.values())
+    print(&quot;{0:^4}{1:^10}{2:^10}&quot;.format(d,j[0],j[1]))
+    d += 1
+choice = int(input(&quot;Please choice ID!&quot;))
+if salary &gt;= goods[choice-1][&quot;price&quot;]:
+    print(&quot;Shopping success!&quot;)
+else:
+    print(&quot;Your money is not enough!&quot;)
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/05/python/格式化字符串/" rel="next" title="字符串格式化">
+                <i class="fa fa-chevron-left"></i> 字符串格式化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/05/python小例子/进度条/" rel="prev" title="进度条">
+                进度条 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="G-YUE" />
+          <p class="site-author-name" itemprop="name">G-YUE</p>
+           
+              <p class="site-description motion-element" itemprop="description">做自己爱做的事，爱自己在做的事！</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">G-YUE</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

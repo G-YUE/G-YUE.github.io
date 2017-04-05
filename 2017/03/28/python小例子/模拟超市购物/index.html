@@ -87,33 +87,31 @@
 
 
 
-<meta name="description" content="模拟购物车。#商品名称列表、商品价格列表
-#购物商品列表、购物单价列表
-
-procuct_name = [&amp;quot;苹果7 Plus&amp;quot;,&amp;quot;小米5s Plus&amp;quot;,&amp;quot;华为P10&amp;quot;,&amp;quot;锤子M1&amp;quot;,&amp;quot;魅族6 Plus&amp;quot;]
-procuct_price = [5700,2600,4088,2499,2999]
-shop">
+<meta name="description" content="#商品清单，购物清单
+procuct_name1=[[&amp;quot;苹果7 Plus&amp;quot;,5700],
+               [&amp;quot;小米5 Plus&amp;quot;,2600],
+               [&amp;quot;华为P10&amp;quot;,4088],
+               [&amp;quot;锤子M1&amp;quot;,2499],
+               [&amp;quo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="模拟购物车">
 <meta property="og:url" content="http://yoursite.com/2017/03/28/python小例子/模拟超市购物/index.html">
 <meta property="og:site_name" content="跃">
-<meta property="og:description" content="模拟购物车。#商品名称列表、商品价格列表
-#购物商品列表、购物单价列表
-
-procuct_name = [&amp;quot;苹果7 Plus&amp;quot;,&amp;quot;小米5s Plus&amp;quot;,&amp;quot;华为P10&amp;quot;,&amp;quot;锤子M1&amp;quot;,&amp;quot;魅族6 Plus&amp;quot;]
-procuct_price = [5700,2600,4088,2499,2999]
-shop">
-<meta property="og:image" content="http://i.imgur.com/ajEjsHW.png">
-<meta property="og:updated_time" content="2017-03-28T07:54:11.186Z">
+<meta property="og:description" content="#商品清单，购物清单
+procuct_name1=[[&amp;quot;苹果7 Plus&amp;quot;,5700],
+               [&amp;quot;小米5 Plus&amp;quot;,2600],
+               [&amp;quot;华为P10&amp;quot;,4088],
+               [&amp;quot;锤子M1&amp;quot;,2499],
+               [&amp;quo">
+<meta property="og:updated_time" content="2017-03-31T12:26:52.765Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="模拟购物车">
-<meta name="twitter:description" content="模拟购物车。#商品名称列表、商品价格列表
-#购物商品列表、购物单价列表
-
-procuct_name = [&amp;quot;苹果7 Plus&amp;quot;,&amp;quot;小米5s Plus&amp;quot;,&amp;quot;华为P10&amp;quot;,&amp;quot;锤子M1&amp;quot;,&amp;quot;魅族6 Plus&amp;quot;]
-procuct_price = [5700,2600,4088,2499,2999]
-shop">
-<meta name="twitter:image" content="http://i.imgur.com/ajEjsHW.png">
+<meta name="twitter:description" content="#商品清单，购物清单
+procuct_name1=[[&amp;quot;苹果7 Plus&amp;quot;,5700],
+               [&amp;quot;小米5 Plus&amp;quot;,2600],
+               [&amp;quot;华为P10&amp;quot;,4088],
+               [&amp;quot;锤子M1&amp;quot;,2499],
+               [&amp;quo">
 
 
 
@@ -380,69 +378,70 @@ shop">
       
 
       
-        <h1 id="模拟购物车。"><a href="#模拟购物车。" class="headerlink" title="模拟购物车。"></a>模拟购物车。</h1><pre><code>#商品名称列表、商品价格列表
-#购物商品列表、购物单价列表
-
-procuct_name = [&quot;苹果7 Plus&quot;,&quot;小米5s Plus&quot;,&quot;华为P10&quot;,&quot;锤子M1&quot;,&quot;魅族6 Plus&quot;]
-procuct_price = [5700,2600,4088,2499,2999]
-shopping_cart = []
-shopping_money= []
+        <pre><code>#商品清单，购物清单
+procuct_name1=[[&quot;苹果7 Plus&quot;,5700],
+               [&quot;小米5 Plus&quot;,2600],
+               [&quot;华为P10&quot;,4088],
+               [&quot;锤子M1&quot;,2499],
+               [&quot;魅族6 Plus&quot;,2999]]
+shopping_cart = []  #购物车
+shopping_name=[]    #选购的商品名
+expense = 0         #总消费
 </code></pre><a id="more"></a>
-<pre><code>#开头欢迎词,展示商品。
+<pre><code>#首页
 print(&quot;欢迎来到手机大卖场!!!!!&quot;)
-salary = int(input(&quot;请输入您的余额!&quot;))
+salary = int(input(&quot;请输入您携带的现金：&quot;).strip())
 print(&quot;下面是本店的商品列表:\n---------------------------&quot;)
-number = 0
-for i in procuct_name:
-    j = procuct_price[number]
-    print(&quot;%d.----%s----%d&quot; % (number+1,i,j))
-    number +=1
-else:
-    print(&quot;---------------------------&quot;)
-
-
-#开始进行购物，退出输入q。
-
+#开始购物。
 while  True :
-    buy=input(&quot;请输入您想购买的商品编号:（如果想退出商店请输入：q）&quot;)
-    try:
-        buy = int(buy)
-    except ValueError:
-        if buy == &quot;q&quot;:
-            break
-    if buy &gt; len(procuct_price) or buy &lt;0:
+    # 将商品清单取出和价钱匹配排列。
+    print(&quot;{0:4}{1:9}{2:9}&quot;.format(&quot;编号&quot;,&quot;商品名&quot;,&quot;单价&quot;))
+    for i in range(0, len(procuct_name1)):
+        print((&quot;{0:4}.{1:9}{2:6}&quot; .format((i+1),procuct_name1[i][0], procuct_name1[i][1])))
+    else:
+        print(&quot;---------------------------&quot;)
+    choice=input(&quot;请输入您想购买的商品编号:（如果想退出商店请输入：q）&quot;).strip()
+    if choice.isdigit():
+        choice=int(choice)
+    elif choice==&quot;q&quot;:
+        break
+    else:
+        print(&quot;没有此选项！&quot;)
+        continue
+
+    if choice &gt; len(procuct_name1) or choice &lt;0:
         print(&quot;请输入正确的商品编号!&quot;)
     else:
-        money = procuct_price[buy-1]
+        money = procuct_name1[choice-1][1]
         if money &gt; salary:
             diff = money - salary
-            print(&quot;您不能购买本商品，余额还差 %d&quot; % diff)
+            print(&quot;您不能购买本商品，您的余额为：%d   还差 %d&quot; % (salary,diff))
         else:
+            if procuct_name1[choice-1][0] in shopping_name:
+                i = shopping_name.index(procuct_name1[choice-1][0])
+                shopping_cart[i][2] = shopping_cart[i][2] + 1
+            else:
+                shopping_cart.append(procuct_name1[choice - 1])
+                shopping_cart[len(shopping_cart)-1].append(1)
+                shopping_name.append(procuct_name1[choice-1][0])
             salary = salary - money
-            shopping_cart.append(procuct_name[buy-1])
-            shopping_money.append(procuct_price[buy-1])
+            expense += money
             print(&quot;购物成功！ 余额为： %d&quot; % salary)
 
-
-#打印结账单。    
-
+#结账。打印购物清单。
 if len(shopping_cart) == 0:
     print(&quot;欢迎下次光临！&quot;)
 else:
     print(&quot;---------------------------&quot;)
     print(&quot;您本次购买的商品：&quot;)
-    number_1=0
-    used = 0
-    for i in shopping_cart:
-        j = shopping_money[number_1]
-        used = used + j
-        print(&quot;%s---------%d&quot; % (i,j))
-        number_1 +=1
+    print(&quot;{0:4}{1:9}{2:9}{3:9}{4:9}&quot;.format(&quot;编号&quot;, &quot;商品名&quot;, &quot;单价&quot;,&quot;数量&quot;,&quot;总价&quot;))
+    for i in range(0,len(shopping_cart)):
+        total = shopping_cart[i][1]*shopping_cart[i][2]
+        print((&quot;{0:4}.{1:9}{2:6}{3:9}    {4:9}&quot;.format((i + 1), shopping_cart[i][0], shopping_cart[i][1],int(shopping_cart[i][2]),total)))
     else:
-        print(&quot;总消费：%d         余额为：%d&quot; %  (used,salary))
-        print(&quot;欢迎下次光临！\n---------------------------&quot;)
-</code></pre><p><img src="http://i.imgur.com/ajEjsHW.png" alt=""></p>
-
+        print(&quot;总消费：%d         余额为：%d&quot; %  (expense,salary))
+        print(&quot;欢迎下次光临！\n--------------------------------&quot;)
+</code></pre>
       
     </div>
 
@@ -543,17 +542,8 @@ else:
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -568,7 +558,7 @@ else:
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">30</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -579,7 +569,7 @@ else:
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -615,22 +605,6 @@ else:
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#模拟购物车。"><span class="nav-number">1.</span> <span class="nav-text">模拟购物车。</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

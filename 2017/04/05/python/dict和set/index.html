@@ -1,0 +1,828 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="dict字典｛｝Python内置了字典：dict（dictionary），在其他语言中称为map，使用键–值（key–vale），查找速度极快。
+特点：键是唯一的，唯一的意思是：它的类型是不可变的。如：数字、字符串、元组等，列表就不可以当作键，值的内容是无序的。
+
+如果一个字典中有2个相同的键，后面的会覆盖掉前面的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="dict 和 set">
+<meta property="og:url" content="http://yoursite.com/2017/04/05/python/dict和set/index.html">
+<meta property="og:site_name" content="跃">
+<meta property="og:description" content="dict字典｛｝Python内置了字典：dict（dictionary），在其他语言中称为map，使用键–值（key–vale），查找速度极快。
+特点：键是唯一的，唯一的意思是：它的类型是不可变的。如：数字、字符串、元组等，列表就不可以当作键，值的内容是无序的。
+
+如果一个字典中有2个相同的键，后面的会覆盖掉前面的。">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170331192659508-144546553.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170331192821727-1958764002.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170331193059399-592524592.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170331193722352-2114186254.png">
+<meta property="og:image" content="http://i.imgur.com/AzoGuqu.png">
+<meta property="og:updated_time" content="2017-04-01T12:05:59.472Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="dict 和 set">
+<meta name="twitter:description" content="dict字典｛｝Python内置了字典：dict（dictionary），在其他语言中称为map，使用键–值（key–vale），查找速度极快。
+特点：键是唯一的，唯一的意思是：它的类型是不可变的。如：数字、字符串、元组等，列表就不可以当作键，值的内容是无序的。
+
+如果一个字典中有2个相同的键，后面的会覆盖掉前面的。">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170331192659508-144546553.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/05/python/dict和set/"/>
+
+
+
+
+
+  <title> dict 和 set | 跃 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">跃</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">记录学习的技能和遇到的问题</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/05/python/dict和set/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="G-YUE">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="跃">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                dict 和 set
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-05T20:00:30+08:00">
+                2017-04-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="dict字典｛｝"><a href="#dict字典｛｝" class="headerlink" title="dict字典｛｝"></a>dict字典｛｝</h1><p>Python内置了字典：dict（dictionary），在其他语言中称为map，使用键–值（key–vale），查找速度极快。</p>
+<pre><code>特点：键是唯一的，唯一的意思是：它的类型是不可变的。如：数字、字符串、元组等，列表就不可以当作键，值的内容是无序的。
+
+如果一个字典中有2个相同的键，后面的会覆盖掉前面的。
+</code></pre><a id="more"></a>
+<p>举个例子：加入你想要根据同学的姓名查看对应的成绩,用list实现的话。</p>
+<p>names =[“aaa”,”bbb”,”ccc”]<br>scores = [77,88,99]</p>
+<p>给定一个名字，要查找对应的成绩，就先要在names中找到对应的位置，再从scores中取出对应的成绩。这样的话，list越长，查找的速度就越慢，耗时就越长。</p>
+<h3 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h3><p>如果用dict实现的话，只需要建一个姓名–成绩的对照表就可以了。</p>
+<pre><code>&gt;&gt;&gt;d={&quot;aaa&quot;:77,&quot;bbb&quot;:88,&quot;ccc&quot;:99}
+&gt;&gt;&gt;d[&quot;aaa&quot;]
+77
+</code></pre><p>或者dict.get()：</p>
+<pre><code>&gt;&gt;&gt;a=d.get(&quot;aaa&quot;)
+&gt;&gt;&gt;a
+77
+
+如果get中的键不在d中，可以设置一个返回参数。
+
+&gt;&gt;&gt;d.get(&quot;ddd&quot;,-1)
+-1
+</code></pre><p>dict.keys()   返回所有的key值到一个列表里。<br>dict.values（） 返回所有的value值到一个列表里。</p>
+<p>但是想要直接调用还需要转化成list（dict.keys（））</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170331192659508-144546553.png" alt=""></p>
+<h3 id="增加元素"><a href="#增加元素" class="headerlink" title="增加元素"></a>增加元素</h3><p>将数据放入dict中，除了初始化指定外，还可以通过key放入。</p>
+<pre><code>&gt;&gt;&gt;a[&quot;aaa&quot;]
+77
+&gt;&gt;&gt;a[&quot;aaa&quot;]=12
+&gt;&gt;&gt;a[&quot;aaa&quot;]
+12
+</code></pre><p>如果key不存在，dict就会新增元素。</p>
+<p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170331192821727-1958764002.png" alt=""></p>
+<h3 id="通过-in-判断key是否存在"><a href="#通过-in-判断key是否存在" class="headerlink" title="通过 in 判断key是否存在"></a>通过 in 判断key是否存在</h3><p>存在返回True，不存在返回False</p>
+<pre><code>&gt;&gt;&gt;&quot;ddd&quot; in a
+False
+&gt;&gt;&gt;&quot;aaa&quot; in a
+True
+</code></pre><h3 id="通过dict提供的get方法。"><a href="#通过dict提供的get方法。" class="headerlink" title="通过dict提供的get方法。"></a>通过dict提供的get方法。</h3><p>存在返回value值，不存在返回None不会有显示，也可以自己设定返回值。</p>
+<pre><code>&gt;&gt;&gt;a.get(&quot;ddd&quot;)
+&gt;&gt;&gt;a.get(&quot;ddd&quot;,-1)
+-1
+</code></pre><h3 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h3><p>要删除一个dict.pop（k,d=none）</p>
+<pre><code>删除指定K的元素。成功就返回对应的值，失败则返回自定义的d，如果没有定义则报错。
+</code></pre><p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170331193059399-592524592.png" alt=""></p>
+<p>随机删除一个dict.popitem（）</p>
+<p>del dict[K]  :删除指定键的元素。</p>
+<h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><pre><code>for i in dict:
+    print(i,dict[i])  i打印dict中的k，通过K打印对应的value，
+</code></pre><h3 id="更新，dict-update-dict2"><a href="#更新，dict-update-dict2" class="headerlink" title="更新，dict.update(dict2)"></a>更新，dict.update(dict2)</h3><p>将dict2中的元素，追加到dict中。如果有重复k键的，用dict2中的value覆盖。</p>
+<pre><code>a={1:2,2:3,3:4}
+b={3:5,4:5}
+a.update(b)
+a={1:2,2:3,3:5,4:5}
+b={3:5,4:5}
+</code></pre><h1 id="set"><a href="#set" class="headerlink" title="set"></a>set</h1><p>set和dict类似，也是一组key的集合，但不存储value。而且set是无序的。key是不可变类型</p>
+<p>要创建一个set，需要提供一个list作为集合的输入：</p>
+<pre><code>&gt;&gt;&gt;a = set([1,2,3])
+&gt;&gt;&gt;a
+{1,2,3}
+</code></pre><p>set中重复的元素会被自动过滤掉：</p>
+<pre><code>&gt;&gt;&gt;s = set([1,1,2,3,4,5,6,7,7,7,1])
+&gt;&gt;&gt;s
+{1,2,3,4,5,6,7}
+</code></pre><h3 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h3><p>可以通过add(key)方法添加元素到set中。如果重复添加，虽然可以，但是不会有效果。</p>
+<pre><code>&gt;&gt;&gt;s =set([1,2,3])
+&gt;&gt;&gt;s.add(4)
+&gt;&gt;&gt;s
+{1,2,3,4}
+</code></pre><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>可以通过rmove（key）方法删除元素：</p>
+<pre><code>&gt;&gt;&gt;s.rmove(4)
+&gt;&gt;&gt;s
+{1，2，3}
+</code></pre><p>可以通过discard()方法删除元素和rmove一样。</p>
+<pre><code>discard()和rmove()的区别：
+rmove()如果要删除的元素不存在，则报错。
+discard()如果要删除的元素不存在，不会报错。
+</code></pre><p>也可以通pop()方法删除，不过该方法是随机删除的的。</p>
+<h3 id="交集，并集，差集-对称差集，子集"><a href="#交集，并集，差集-对称差集，子集" class="headerlink" title="交集，并集，差集,对称差集，子集"></a>交集，并集，差集,对称差集，子集</h3><p>set可以堪称是数学意义上的无序和无重复的集合。因此，两个set可以进行数学意义上的交集，并集等操作。</p>
+<pre><code>&gt;&gt;&gt;s1 = set([1,2,3])
+&gt;&gt;&gt;s2 = set([2,3,4])
+&gt;&gt;&gt;s1 &amp; s2   #交集 s1.intersection(s2)
+ {2,3}
+
+s1.update(s2) #将s2中的元素加入到s1中，赋值给s1
+
+&gt;&gt;&gt;s1 | s2    #并集 s1.union(s2) ，依然是自动删除重复元素。
+{1,2,3,4}
+
+&gt;&gt;&gt;s1 - s2    #相对补集，差集 s1.differrnce(s2)
+｛1｝
+
+&gt;&gt;&gt;s1.symmetric_difference(s2) #对称差集，把互相不一样的打印出来。
+&gt;&gt;&gt;s1 ^ s2
+{1,4}    
+
+s1.issubset(s2) 判断s1是不是s2的子集 s1 &lt; s2
+s1.issuperset(s2) 判断s1是不是s2父集 s1 &gt; s2
+
+s1.isdisjoint(s2)  如果s1和s2没有交集，则返回True，反之返回False    
+</code></pre><p><img src="http://images2015.cnblogs.com/blog/1122836/201703/1122836-20170331193722352-2114186254.png" alt=""></p>
+<p><img src="http://i.imgur.com/AzoGuqu.png" alt=""></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/05/python/字符串各种方法/" rel="next" title="字符串">
+                <i class="fa fa-chevron-left"></i> 字符串
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/05/python/list和tuple/" rel="prev" title="list和tuple">
+                list和tuple <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="G-YUE" />
+          <p class="site-author-name" itemprop="name">G-YUE</p>
+           
+              <p class="site-description motion-element" itemprop="description">做自己爱做的事，爱自己在做的事！</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#dict字典｛｝"><span class="nav-number">1.</span> <span class="nav-text">dict字典｛｝</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看"><span class="nav-number">1.0.1.</span> <span class="nav-text">查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加元素"><span class="nav-number">1.0.2.</span> <span class="nav-text">增加元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-in-判断key是否存在"><span class="nav-number">1.0.3.</span> <span class="nav-text">通过 in 判断key是否存在</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过dict提供的get方法。"><span class="nav-number">1.0.4.</span> <span class="nav-text">通过dict提供的get方法。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除元素"><span class="nav-number">1.0.5.</span> <span class="nav-text">删除元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环"><span class="nav-number">1.0.6.</span> <span class="nav-text">循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新，dict-update-dict2"><span class="nav-number">1.0.7.</span> <span class="nav-text">更新，dict.update(dict2)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#set"><span class="nav-number">2.</span> <span class="nav-text">set</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加"><span class="nav-number">2.0.1.</span> <span class="nav-text">添加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除"><span class="nav-number">2.0.2.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#交集，并集，差集-对称差集，子集"><span class="nav-number">2.0.3.</span> <span class="nav-text">交集，并集，差集,对称差集，子集</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">G-YUE</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
